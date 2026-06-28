@@ -1,0 +1,117 @@
+---
+const phases = [
+  {
+    step: '01',
+    title: 'Fase 1: Tinjauan Anatomi Risiko',
+    subtitle: 'Analisis Berkas & Diagnostik Awal',
+    description: 'Kami melakukan investigasi mendalam terhadap anatomi berkas perkara, memetakan celah hukum, dan mendiagnosis potensi risiko sebelum menyusun strategi pertahanan.'
+  },
+  {
+    step: '02',
+    title: 'Fase 2: Strategi Preventif & Mediasi',
+    subtitle: 'Jalur Non-Litigasi & Negosiasi',
+    description: 'Mengutamakan penyelesaian sengketa secara efisien melalui perundingan tertutup dan mediasi strategis untuk meminimalisasi publisitas buruk dan biaya.'
+  },
+  {
+    step: '03',
+    title: 'Fase 3: Agresi Hukum & Advokasi',
+    subtitle: 'Litigasi Sidang & Eksekusi Taktis',
+    description: 'Jika jalur damai tidak terpenuhi, kami meluncurkan agresi hukum penuh di persidangan dengan bukti terenkripsi, saksi ahli, dan advokasi yang gigih.'
+  },
+  {
+    step: '04',
+    title: 'Fase 4: Eksekusi & Proteksi Purnakarsa',
+    subtitle: 'Pengamanan Aset & Kepatuhan Jangka Panjang',
+    description: 'Memastikan putusan hakim dieksekusi secara nyata di lapangan dan merancang regulasi kepatuhan internal untuk mencegah ancaman serupa terjadi kembali.'
+  }
+];
+---
+
+<div class="timeline-container" style="position: relative; padding: 2rem 0; width: 100%;">
+  
+  <!-- Central Vertical Line (Desktop Only) -->
+  <div class="timeline-line" style="position: absolute; top: 0; bottom: 0; left: 50%; width: 1px; background-color: var(--color-border-gold); transform: translateX(-50%); z-index: 1;"></div>
+  
+  <div style="display: flex; flex-direction: column; gap: 4rem; position: relative; z-index: 2;">
+    {phases.map((phase, index) => {
+      const isEven = index % 2 === 0;
+      return (
+        <div class="timeline-item" style={`display: flex; width: 100%; align-items: center; justify-content: space-between; flex-direction: ${isEven ? 'row' : 'row-reverse'};`}>
+          
+          <!-- Content Side -->
+          <div class="timeline-content-wrapper" style="width: 45%; transition: var(--transition-normal);">
+            <div class="glass-panel timeline-card" style="padding: 2.5rem; border-radius: var(--radius-sm); border-left: 3px solid var(--color-gold); background: rgba(255, 255, 255, 0.75);">
+              <span style="font-size: 0.75rem; font-weight: 700; color: var(--color-gold-dark); text-transform: uppercase; letter-spacing: 0.1em; display: block; margin-bottom: 0.5rem;">
+                {phase.subtitle}
+              </span>
+              <h3 style="font-size: 1.35rem; color: var(--color-text-primary); margin-bottom: 1rem; font-weight: 700;">
+                {phase.title}
+              </h3>
+              <p style="font-size: 0.95rem; line-height: 1.6; color: var(--color-text-secondary); margin: 0;">
+                {phase.description}
+              </p>
+            </div>
+          </div>
+          
+          <!-- Circle Node -->
+          <div class="timeline-node" style="width: 50px; height: 50px; border-radius: 50%; background-color: var(--color-bg-white); border: 2px solid var(--color-gold); display: flex; align-items: center; justify-content: center; font-weight: 800; color: var(--color-gold-dark); font-size: 1.1rem; z-index: 5; box-shadow: var(--shadow-sm); transition: var(--transition-normal); transform: scale(1);">
+            {phase.step}
+          </div>
+          
+          <!-- Empty Spacer Side -->
+          <div class="timeline-spacer" style="width: 45%;"></div>
+          
+        </div>
+      );
+    })}
+  </div>
+
+</div>
+
+<style>
+  /* Responsive styles for Timeline */
+  @media (max-width: 991px) {
+    .timeline-line {
+      left: 20px !important;
+      transform: none !important;
+    }
+    
+    .timeline-item {
+      flex-direction: column !important;
+      align-items: flex-start !important;
+      gap: 1rem;
+      position: relative;
+      padding-left: 60px;
+    }
+    
+    .timeline-content-wrapper {
+      width: 100% !important;
+    }
+    
+    .timeline-node {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 40px !important;
+      height: 40px !important;
+      font-size: 0.95rem !important;
+    }
+    
+    .timeline-spacer {
+      display: none !important;
+    }
+  }
+  
+  /* Hover effects */
+  .timeline-item:hover .timeline-node {
+    transform: scale(1.15);
+    background-color: var(--color-gold);
+    color: var(--color-bg-white);
+    box-shadow: var(--shadow-gold-glow);
+  }
+  
+  .timeline-item:hover .timeline-card {
+    border-left-color: var(--color-text-primary);
+    box-shadow: var(--shadow-md);
+  }
+</style>

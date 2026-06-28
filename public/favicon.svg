@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="none">
+  <circle cx="50" cy="50" r="48" fill="#0F172A" stroke="#C5A880" stroke-width="2"/>
+  <!-- Stylized Gavel / Pillar in Gold -->
+  <path d="M35 70 L65 70 M50 70 L50 40 M38 40 L62 40 M42 33 L58 33 M45 26 L55 26" stroke="#C5A880" stroke-width="4" stroke-linecap="round"/>
+</svg>

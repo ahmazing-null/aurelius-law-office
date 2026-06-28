@@ -1,0 +1,300 @@
+---
+// Kuis Kesehatan Hukum Murni CSS
+---
+
+<div class="legal-quiz-card glass-panel" style="padding: 3rem; border-radius: var(--radius-sm); border-color: var(--color-gold); background: rgba(255, 255, 255, 0.95); box-shadow: var(--shadow-lg); overflow: hidden; position: relative;">
+  
+  <div style="text-align: center; margin-bottom: 2.5rem;">
+    <span class="badge-gold">Legal Diagnostics</span>
+    <h3 style="font-size: 1.75rem; color: var(--color-text-primary); font-weight: 800; margin-top: 0.5rem; margin-bottom: 0.75rem;">
+      Legal Health Check
+    </h3>
+    <p style="font-size: 0.95rem; color: var(--color-text-secondary); max-width: 500px; margin: 0 auto;">
+      Uji kekuatan hukum bisnis Anda secara instan dalam 3 pertanyaan mendasar berikut untuk mendeteksi celah risiko litigasi.
+    </p>
+  </div>
+
+  <!-- CSS Checkbox untuk Menampilkan Hasil -->
+  <input type="checkbox" id="show-result" class="quiz-result-trigger" style="display: none;" />
+
+  <!-- CONTAINER 1: DAFTAR PERTANYAAN -->
+  <div class="quiz-questions-panel">
+    
+    <!-- Pertanyaan 1 -->
+    <div class="quiz-question-group" style="margin-bottom: 2rem; border-bottom: 1px solid var(--color-border-light); padding-bottom: 1.5rem;">
+      <h4 style="font-size: 1.05rem; color: var(--color-text-primary); margin-bottom: 1rem; display: flex; gap: 0.75rem; align-items: flex-start;">
+        <span style="background: var(--color-bg-alabaster); border: 0.5px solid var(--color-gold); width: 24px; height: 24px; display: inline-flex; align-items: center; justify-content: center; font-size: 0.75rem; border-radius: 50%; font-weight: 700; color: var(--color-gold-dark); flex-shrink: 0;">1</span>
+        Apakah seluruh aktivitas bisnis & kerja sama Anda diikat dengan kontrak tertulis yang sah?
+      </h4>
+      <div style="display: flex; flex-direction: column; gap: 0.75rem; padding-left: 2rem;">
+        <label class="quiz-option">
+          <input type="radio" name="q1" id="q1-a" checked />
+          <span class="custom-radio"></span>
+          <span class="option-text">Ya, semua diikat dengan kontrak tertulis berstandar hukum tinggi.</span>
+        </label>
+        <label class="quiz-option">
+          <input type="radio" name="q1" id="q1-b" />
+          <span class="custom-radio"></span>
+          <span class="option-text">Sebagian besar tertulis, namun beberapa proyek berjalan atas asas kepercayaan lisan.</span>
+        </label>
+        <label class="quiz-option">
+          <input type="radio" name="q1" id="q1-c" />
+          <span class="custom-radio"></span>
+          <span class="option-text">Sebagian besar lisan dan tidak terdokumentasi secara legal.</span>
+        </label>
+      </div>
+    </div>
+
+    <!-- Pertanyaan 2 -->
+    <div class="quiz-question-group" style="margin-bottom: 2rem; border-bottom: 1px solid var(--color-border-light); padding-bottom: 1.5rem;">
+      <h4 style="font-size: 1.05rem; color: var(--color-text-primary); margin-bottom: 1rem; display: flex; gap: 0.75rem; align-items: flex-start;">
+        <span style="background: var(--color-bg-alabaster); border: 0.5px solid var(--color-gold); width: 24px; height: 24px; display: inline-flex; align-items: center; justify-content: center; font-size: 0.75rem; border-radius: 50%; font-weight: 700; color: var(--color-gold-dark); flex-shrink: 0;">2</span>
+        Apakah Merek Dagang, Paten, atau Hak Cipta teknologi inti Anda telah terdaftar secara resmi di DJKI?
+      </h4>
+      <div style="display: flex; flex-direction: column; gap: 0.75rem; padding-left: 2rem;">
+        <label class="quiz-option">
+          <input type="radio" name="q2" id="q2-a" checked />
+          <span class="custom-radio"></span>
+          <span class="option-text">Sudah terdaftar dan memiliki sertifikat perlindungan resmi.</span>
+        </label>
+        <label class="quiz-option">
+          <input type="radio" name="q2" id="q2-b" />
+          <span class="custom-radio"></span>
+          <span class="option-text">Sedang dalam proses pendaftaran, dokumen administrasi sudah lengkap.</span>
+        </label>
+        <label class="quiz-option">
+          <input type="radio" name="q2" id="q2-c" />
+          <span class="custom-radio"></span>
+          <span class="option-text">Belum didaftarkan sama sekali, rentan ditiru kompetitor.</span>
+        </label>
+      </div>
+    </div>
+
+    <!-- Pertanyaan 3 -->
+    <div class="quiz-question-group" style="margin-bottom: 2.5rem;">
+      <h4 style="font-size: 1.05rem; color: var(--color-text-primary); margin-bottom: 1rem; display: flex; gap: 0.75rem; align-items: flex-start;">
+        <span style="background: var(--color-bg-alabaster); border: 0.5px solid var(--color-gold); width: 24px; height: 24px; display: inline-flex; align-items: center; justify-content: center; font-size: 0.75rem; border-radius: 50%; font-weight: 700; color: var(--color-gold-dark); flex-shrink: 0;">3</span>
+        Apakah Anda memiliki SOP hukum khusus saat menghadapi pemeriksaan mendadak atau krisis pidana bisnis?
+      </h4>
+      <div style="display: flex; flex-direction: column; gap: 0.75rem; padding-left: 2rem;">
+        <label class="quiz-option">
+          <input type="radio" name="q3" id="q3-a" checked />
+          <span class="custom-radio"></span>
+          <span class="option-text">Ya, kami memiliki tim internal dan SOP penanganan krisis hukum.</span>
+        </label>
+        <label class="quiz-option">
+          <input type="radio" name="q3" id="q3-b" />
+          <span class="custom-radio"></span>
+          <span class="option-text">Hanya panduan verbal, belum diatur dalam dokumen kepatuhan formal.</span>
+        </label>
+        <label class="quiz-option">
+          <input type="radio" name="q3" id="q3-c" />
+          <span class="custom-radio"></span>
+          <span class="option-text">Tidak ada sama sekali, tim kami tidak tahu apa yang harus dilakukan.</span>
+        </label>
+      </div>
+    </div>
+
+    <div style="text-align: center;">
+      <label for="show-result" class="btn btn-gold-outline" style="padding: 1rem 3rem;">
+        Analisis Risiko Hukum Saya
+      </label>
+    </div>
+
+  </div>
+
+  <!-- CONTAINER 2: PANEL HASIL DIAGNOSIS -->
+  <div class="quiz-results-panel" style="display: none;">
+    
+    <!-- State 1: Risiko Tinggi (Jika ada minimal satu pilihan C yang tercentang) -->
+    <!-- Kita menyembunyikan/menampilkan hasil berdasarkan kombinasi CSS selector di bawah -->
+    
+    <div class="result-box critical-risk">
+      <div style="text-align: center; margin-bottom: 2rem;">
+        <span class="badge-red" style="animation: pulse-red 2s infinite; font-size: 0.85rem; padding: 0.5rem 1.25rem;">
+          Tingkat Risiko: Kritikal & Rentan
+        </span>
+      </div>
+      <p style="font-size: 1.05rem; line-height: 1.8; color: var(--color-text-primary); margin-bottom: 1.5rem; text-align: justify;">
+        <strong>Analisis Diagnostik:</strong> Aset bisnis dan perlindungan hukum perusahaan Anda berada dalam posisi <strong>Sangat Rentan</strong>. Ketiadaan kontrak tertulis yang kuat atau perlindungan kekayaan intelektual (DJKI) membuka peluang besar terjadinya sengketa komersial yang berbiaya sangat tinggi. Tanpa SOP mitigasi krisis hukum, tindakan penegakan hukum mendadak dapat membekukan operasional bisnis Anda seketika.
+      </p>
+      
+      <div style="background-color: rgba(192, 57, 43, 0.05); border-left: 4px solid var(--color-accent-red); padding: 1.5rem; margin-bottom: 2.5rem; border-radius: 4px;">
+        <span style="font-weight: 700; color: var(--color-accent-red); font-size: 0.95rem; text-transform: uppercase; display: block; margin-bottom: 0.5rem;">Rekomendasi Tindakan Segera:</span>
+        <ol style="font-size: 0.9rem; color: var(--color-text-secondary); padding-left: 1.2rem; display: flex; flex-direction: column; gap: 0.5rem;">
+          <li>Segera lakukan audit kontrak komersial lisan untuk dikonversi menjadi dokumen hukum tertulis.</li>
+          <li>Daftarkan merek dagang utama Anda sebelum didahului pihak lain (First to File principle).</li>
+          <li>Hubungi tim darurat hukum kami untuk menyusun protokol mitigasi krisis kepatuhan.</li>
+        </ol>
+      </div>
+    </div>
+
+    <!-- State 2: Risiko Menengah (Jika tidak ada C, tapi ada pilihan B) -->
+    <div class="result-box moderate-risk">
+      <div style="text-align: center; margin-bottom: 2rem;">
+        <span class="badge-gold" style="font-size: 0.85rem; padding: 0.5rem 1.25rem; background-color: var(--color-gold-light); color: var(--color-gold-dark);">
+          Tingkat Risiko: Menengah / Perlu Optimalisasi
+        </span>
+      </div>
+      <p style="font-size: 1.05rem; line-height: 1.8; color: var(--color-text-primary); margin-bottom: 1.5rem;">
+        <strong>Analisis Diagnostik:</strong> Struktur hukum perusahaan Anda sudah berjalan secara fungsional, namun masih terdapat beberapa <strong>Blind Spots</strong> penting. Kerja sama berdasarkan kepercayaan verbal serta pendaftaran IP yang masih dalam proses merupakan celah hukum yang sering dimanfaatkan oleh pihak lawan dalam sengketa. Kepatuhan Anda memerlukan peningkatan standarisasi agar benar-benar kedap sengketa.
+      </p>
+      <div style="background-color: rgba(197, 168, 128, 0.05); border-left: 4px solid var(--color-gold); padding: 1.5rem; margin-bottom: 2.5rem; border-radius: 4px;">
+        <span style="font-weight: 700; color: var(--color-gold-dark); font-size: 0.95rem; text-transform: uppercase; display: block; margin-bottom: 0.5rem;">Langkah Optimalisasi:</span>
+        <ol style="font-size: 0.9rem; color: var(--color-text-secondary); padding-left: 1.2rem; display: flex; flex-direction: column; gap: 0.5rem;">
+          <li>Segera selesaikan sisa administrasi permohonan pendaftaran merek dagang Anda di DJKI.</li>
+          <li>Lakukan standardisasi dokumen perjanjian (template master agreement) untuk klien dan vendor.</li>
+          <li>Pertajam prosedur kepatuhan hukum dengan audit hukum korporasi eksternal.</li>
+        </ol>
+      </div>
+    </div>
+
+    <!-- State 3: Risiko Rendah / Aman (Semua pilihan A terpilih) -->
+    <div class="result-box secure-status">
+      <div style="text-align: center; margin-bottom: 2rem;">
+        <span class="badge-gold" style="font-size: 0.85rem; padding: 0.5rem 1.25rem; background-color: #e8f5e9; border-color: #2e7d32; color: #2e7d32;">
+          Status: Aman & Kedap Hukum
+        </span>
+      </div>
+      <p style="font-size: 1.05rem; line-height: 1.8; color: var(--color-text-primary); margin-bottom: 1.5rem;">
+        <strong>Analisis Diagnostik:</strong> Selamat. Bisnis Anda memiliki <strong>fondasi perlindungan hukum yang sangat kokoh</strong>. Integrasi kontrak tertulis yang berstandar tinggi, registrasi kepemilikan aset intelektual formal, dan kesiapan SOP krisis internal menandakan manajemen tata kelola risiko hukum korporasi yang matang.
+      </p>
+      <div style="background-color: rgba(46, 125, 50, 0.05); border-left: 4px solid #2e7d32; padding: 1.5rem; margin-bottom: 2.5rem; border-radius: 4px;">
+        <span style="font-weight: 700; color: #2e7d32; font-size: 0.95rem; text-transform: uppercase; display: block; margin-bottom: 0.5rem;">Langkah Pemeliharaan:</span>
+        <p style="font-size: 0.9rem; color: var(--color-text-secondary); margin: 0;">
+          Lanjutkan evaluasi kepatuhan secara tahunan (Annual Compliance Review) guna menyesuaikan strategi hukum dengan dinamika regulasi bisnis digital terbaru di Indonesia.
+        </p>
+      </div>
+    </div>
+
+    <!-- Pilihan Tombol Kembali / Hubungi Kami -->
+    <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+      <label for="show-result" class="btn btn-gold-outline" style="padding: 0.85rem 1.5rem;">
+        Ulangi Tes
+      </label>
+      <a href="https://wa.me/6285171605225?text=Halo%20Aurelius%20Law%20Office,%20saya%20sudah%20mengisi%20kuis%20kesehatan%20hukum%20dan%20ingin%20berkonsultasi%20mengenai%20status%20mitigasi%20risiko." class="btn btn-red-pulse" style="padding: 0.85rem 1.5rem;">
+        Konsultasi Hasil
+      </a>
+    </div>
+
+  </div>
+
+</div>
+
+<style>
+  /* Interaksi CSS Kuis */
+  .quiz-option {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    cursor: pointer;
+    padding: 0.85rem 1.25rem;
+    border: 1.2px solid var(--color-border-light);
+    border-radius: var(--radius-sm);
+    transition: var(--transition-fast);
+  }
+  
+  .quiz-option input[type="radio"] {
+    display: none;
+  }
+  
+  .custom-radio {
+    width: 18px;
+    height: 18px;
+    border: 2px solid var(--color-text-light);
+    border-radius: 50%;
+    display: inline-block;
+    position: relative;
+    transition: var(--transition-fast);
+    flex-shrink: 0;
+  }
+  
+  .quiz-option input[type="radio"]:checked + .custom-radio {
+    border-color: var(--color-gold-dark);
+  }
+  
+  .quiz-option input[type="radio"]:checked + .custom-radio::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 8px;
+    height: 8px;
+    background-color: var(--color-gold-dark);
+    border-radius: 50%;
+  }
+  
+  .quiz-option:hover {
+    background-color: var(--color-bg-alabaster);
+    border-color: var(--color-gold);
+  }
+  
+  .quiz-option input[type="radio"]:checked ~ .option-text {
+    color: var(--color-text-primary);
+    font-weight: 500;
+  }
+  
+  .option-text {
+    font-size: 0.9rem;
+    color: var(--color-text-secondary);
+  }
+  
+  /* Logika Menampilkan Hasil Berdasarkan Seleksi Radio di CSS */
+  .quiz-result-trigger:checked ~ .quiz-questions-panel {
+    display: none !important;
+  }
+  
+  .quiz-result-trigger:checked ~ .quiz-results-panel {
+    display: block !important;
+  }
+
+  /* Definisikan Visibilitas Kotak Hasil Diagnosis
+     Kami menggunakan selector tingkat lanjut untuk mendeteksi pilihan yang aktif.
+     Jika ada minimal satu pilihan "c" (paling buruk) terpilih di antara q1, q2, atau q3, tampilkan kritis.
+     Jika tidak ada "c" yang terpilih, namun ada minimal satu "b" terpilih, tampilkan moderate.
+     Jika semua memilih "a" (q1-a, q2-a, q3-a terpilih), tampilkan secure.
+  */
+  
+  /* Default: Sembunyikan semua box hasil */
+  .result-box {
+    display: none;
+  }
+  
+  /* Kondisi Kritis: Jika q1-c ATAU q2-c ATAU q3-c dicentang */
+  #q1-c:checked ~ .quiz-results-panel .critical-risk,
+  #q2-c:checked ~ .quiz-results-panel .critical-risk,
+  #q3-c:checked ~ .quiz-results-panel .critical-risk {
+    display: block !important;
+  }
+  
+  /* Kondisi Sedang: Jika (q1-b ATAU q2-b ATAU q3-b dicentang) DAN (tidak ada q1-c, q2-c, q3-c yang dicentang) */
+  #q1-b:checked ~ .quiz-results-panel .moderate-risk,
+  #q2-b:checked ~ .quiz-results-panel .moderate-risk,
+  #q3-b:checked ~ .quiz-results-panel .moderate-risk {
+    display: block;
+  }
+  
+  /* Jika kritis aktif, sembunyikan moderate risk box */
+  #q1-c:checked ~ .quiz-results-panel .moderate-risk,
+  #q2-c:checked ~ .quiz-results-panel .moderate-risk,
+  #q3-c:checked ~ .quiz-results-panel .moderate-risk {
+    display: none !important;
+  }
+  
+  /* Kondisi Aman: Hanya jika q1-a DAN q2-a DAN q3-a semuanya dicentang */
+  #q1-a:checked + .custom-radio ~ .dummy-trigger, /* dummy */
+  #q1-a:checked ~ #q2-a:checked ~ #q3-a:checked ~ .quiz-results-panel .secure-status {
+    display: block !important;
+  }
+  
+  /* Sembunyikan aman jika ada yang memilih b atau c */
+  #q1-b:checked ~ .quiz-results-panel .secure-status,
+  #q1-c:checked ~ .quiz-results-panel .secure-status,
+  #q2-b:checked ~ .quiz-results-panel .secure-status,
+  #q2-c:checked ~ .quiz-results-panel .secure-status,
+  #q3-b:checked ~ .quiz-results-panel .secure-status,
+  #q3-c:checked ~ .quiz-results-panel .secure-status {
+    display: none !important;
+  }
+</style>

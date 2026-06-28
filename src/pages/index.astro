@@ -1,0 +1,131 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+import LegalHealthQuiz from '../components/LegalHealthQuiz.astro';
+---
+
+<MainLayout 
+  title="Uncompromising Integrity. Absolute Protection" 
+  description="Aurelius & Associates Law Office - Firma hukum butik modern di Jakarta. Spesialisasi perlindungan aset korporasi, hak kekayaan intelektual, dan mitigasi krisis hukum dengan transparansi biaya radikal."
+>
+
+  <!-- HERO SECTION -->
+  <section style="background: linear-gradient(180deg, var(--color-bg-white) 0%, var(--color-bg-alabaster) 100%); position: relative; padding: 7rem 0 5rem 0; overflow: hidden; border-bottom: 0.5px solid var(--color-border-gold);">
+    
+    <!-- Background SVG Architectural Grid Pattern -->
+    <div style="position: absolute; inset: 0; pointer-events: none; opacity: 0.04; z-index: 1;">
+      <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+            <path d="M 40 0 L 0 0 0 40" fill="none" stroke="var(--color-text-primary)" stroke-width="1"/>
+          </pattern>
+        </defs>
+        <rect width="100%" height="100%" fill="url(#grid)" />
+      </svg>
+    </div>
+
+    <!-- Background Decorative Circle (Golden Light) -->
+    <div style="position: absolute; top: -100px; right: -100px; width: 400px; height: 400px; border-radius: 50%; background: radial-gradient(circle, rgba(197, 168, 128, 0.08) 0%, rgba(255, 255, 255, 0) 70%); pointer-events: none; z-index: 1;"></div>
+
+    <div class="container" style="position: relative; z-index: 2; text-align: center;">
+      
+      <!-- Premium Badge -->
+      <span class="badge-gold" style="margin-bottom: 1.5rem;">Boutique Legal Protection</span>
+
+      <!-- Main Headline -->
+      <h1 style="font-size: 3.5rem; color: var(--color-text-primary); margin-bottom: 1.5rem; font-weight: 800; line-height: 1.15; letter-spacing: -0.03em;">
+        Uncompromising Integrity.<br />
+        <span style="background: linear-gradient(90deg, var(--color-text-primary) 0%, var(--color-gold-dark) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Absolute Protection.</span>
+      </h1>
+
+      <!-- Sub Headline -->
+      <p style="font-size: 1.15rem; color: var(--color-text-secondary); max-width: 750px; margin: 0 auto 2.5rem auto; line-height: 1.8; font-weight: 300;">
+        Sebuah firma hukum butik modern yang mendedikasikan keahlian hukum tingkat tertinggi untuk melindungi aset korporasi, hak kekayaan intelektual, dan keadilan personal Anda melalui <strong style="font-weight: 600; color: var(--color-gold-dark);">transparansi radikal</strong>.
+      </p>
+
+      <!-- Call to Actions (Responsive buttons) -->
+      <div style="display: flex; gap: 1.25rem; justify-content: center; flex-wrap: wrap;">
+        <a href="/kontak" class="btn btn-gold-outline" style="padding: 1rem 2.5rem; font-size: 0.85rem;" id="hero-cta-consult">
+          Konsultasi Transparan
+        </a>
+        <a href="https://wa.me/6285171605225?text=Halo%20Aurelius%20Law%20Office,%20saya%20memerlukan%20bantuan%20penanganan%20darurat%20hukum%2024/7." class="btn btn-red-pulse" style="padding: 1rem 2.5rem; font-size: 0.85rem;" id="hero-cta-emergency">
+          Darurat Krisis 24/7
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CORE VALUES SECTION -->
+  <section class="section-padding" style="background-color: var(--color-bg-white);">
+    <div class="container">
+      
+      <!-- Section Header -->
+      <div style="text-align: center; margin-bottom: 4rem;">
+        <span class="badge-gold">Pilar Nilai Utama</span>
+        <h2 class="text-center" style="margin-top: 0.5rem; margin-bottom: 1rem; font-weight: 800;">Bagaimana Kami Melindungi Anda</h2>
+        <p style="font-size: 1rem; color: var(--color-text-secondary); max-width: 550px; margin: 0 auto;">
+          Tiga pilar dasar yang mendefinisikan standar keahlian advokasi dan perlindungan hukum kami.
+        </p>
+      </div>
+
+      <!-- Core Values Grid -->
+      <div class="grid-3">
+        
+        <!-- Value 1 -->
+        <div class="value-card">
+          <div style="color: var(--color-gold-dark); margin-bottom: 1.5rem;">
+            <!-- Icon Scale / Justice -->
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" style="width: 36px; height: 36px;">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v17.25m0 0a7.5 7.5 0 1 1-7.5-7.5h15a7.5 7.5 0 1 1-7.5 7.5z" />
+            </svg>
+          </div>
+          <h3 style="margin-bottom: 1rem; font-weight: 700; color: var(--color-text-primary);">Radical Transparency</h3>
+          <p style="font-size: 0.95rem; line-height: 1.7; color: var(--color-text-secondary); margin: 0;">
+            Kami memecah labirin hukum yang gelap menjadi peta jalan yang terang benderang, termasuk keterbukaan penuh dalam struktur biaya konsultasi dan litigasi.
+          </p>
+        </div>
+
+        <!-- Value 2 -->
+        <div class="value-card">
+          <div style="color: var(--color-gold-dark); margin-bottom: 1.5rem;">
+            <!-- Icon Shield / Protect -->
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" style="width: 36px; height: 36px;">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.57-.599-3.75A11.952 11.952 0 0012 2.714z" />
+            </svg>
+          </div>
+          <h3 style="margin-bottom: 1rem; font-weight: 700; color: var(--color-text-primary);">High-Stakes Mastery</h3>
+          <p style="font-size: 0.95rem; line-height: 1.7; color: var(--color-text-secondary); margin: 0;">
+            Spesialisasi pada kasus-kasus bernilai tinggi, perlindungan aset digital korporasi, pertahanan HAKI, dan mitigasi risiko komersial sebelum menjadi sengketa resmi.
+          </p>
+        </div>
+
+        <!-- Value 3 -->
+        <div class="value-card">
+          <div style="color: var(--color-gold-dark); margin-bottom: 1.5rem;">
+            <!-- Icon Bolt / Fast Response -->
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" style="width: 36px; height: 36px;">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z" />
+            </svg>
+          </div>
+          <h3 style="margin-bottom: 1rem; font-weight: 700; color: var(--color-text-primary);">Immediate Response</h3>
+          <p style="font-size: 0.95rem; line-height: 1.7; color: var(--color-text-secondary); margin: 0;">
+            Hukum tidak mengenal jam kerja. Kami siap mengamankan posisi hukum dan aset penting Anda dalam hitungan menit saat krisis penegakan hukum terjadi.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- INTERACTIVE HEALTH CHECK DIAGNOSTICS SECTION -->
+  <section class="section-padding" style="background-color: var(--color-bg-alabaster); border-top: 1.5px solid var(--color-border-gold);">
+    <div class="container" style="max-width: 800px;">
+      
+      <!-- Quiz Embedded Component -->
+      <LegalHealthQuiz />
+
+    </div>
+  </section>
+
+</MainLayout>

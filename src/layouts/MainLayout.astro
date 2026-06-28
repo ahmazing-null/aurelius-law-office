@@ -1,0 +1,183 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const { title, description = "Aurelius & Associates Law Office - Sebuah firma hukum boutique modern berintegritas tinggi di SCBD Jakarta." } = Astro.props;
+
+// Mendapatkan rute aktif untuk styling navigasi
+const pathname = Astro.url.pathname;
+const cleanPath = pathname.endsWith('/') && pathname.length > 1 ? pathname.slice(0, -1) : pathname;
+
+const navItems = [
+  { href: '/', label: 'Beranda' },
+  { href: '/tentang-kami', label: 'Tentang Kami' },
+  { href: '/area-hukum', label: 'Area Hukum' },
+  { href: '/tim-kami', label: 'Tim Kami' },
+  { href: '/kontak', label: 'Hubungi Kami' }
+];
+
+const checkActive = (itemHref: string) => {
+  if (itemHref === '/') {
+    return cleanPath === '' || cleanPath === '/' || cleanPath === '/index.html';
+  }
+  return cleanPath.startsWith(itemHref);
+};
+---
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content={description} />
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  
+  <!-- SEO & Canonical -->
+  <title>{title} | Aurelius & Associates Law Office</title>
+</head>
+<body>
+
+  <!-- Header Navigasi -->
+  <header class="glass-panel no-print" style="position: sticky; top: 0; left: 0; width: 100%; z-index: 1000; border-top: none; border-left: none; border-right: none; background: rgba(255, 255, 255, 0.85);">
+    <div class="container" style="display: flex; align-items: center; justify-content: space-between; height: 80px;">
+      
+      <!-- Brand Logo -->
+      <a href="/" style="display: flex; align-items: center; gap: 0.5rem; font-weight: 800; font-size: 1.25rem; letter-spacing: 0.05em; color: var(--color-text-primary); text-transform: uppercase;">
+        <span style="color: var(--color-gold-dark);">Aurelius</span>
+        <span style="font-weight: 300; color: var(--color-text-secondary);">& Associates</span>
+        <span style="width: 6px; height: 6px; background-color: var(--color-gold); border-radius: 50%; display: inline-block;"></span>
+      </a>
+
+      <!-- Menu Navigation (Desktop) -->
+      <nav class="desktop-nav" style="display: flex; gap: 2.5rem; align-items: center;">
+        {navItems.map(item => (
+          <a 
+            href={item.href} 
+            class={`nav-link ${checkActive(item.href) ? 'active' : ''}`}
+            id={`nav-${item.label.toLowerCase().replace(/\s+/g, '-')}`}
+          >
+            {item.label}
+          </a>
+        ))}
+        <a href="/kontak" class="btn btn-gold-outline" style="padding: 0.5rem 1.25rem; font-size: 0.8rem;" id="nav-cta-emergency">
+          Darurat 24/7
+        </a>
+      </nav>
+
+      <!-- CSS Only Mobile Hamburger Trigger -->
+      <input type="checkbox" id="menu-toggle" class="menu-toggle-checkbox" />
+      <label for="menu-toggle" class="menu-toggle-label" id="menu-toggle-btn">
+        <span></span>
+        <span></span>
+        <span></span>
+      </label>
+
+      <!-- Mobile Navigation Drawer -->
+      <nav class="mobile-nav-menu">
+        {navItems.map(item => (
+          <a 
+            href={item.href} 
+            class={`nav-link ${checkActive(item.href) ? 'active' : ''}`}
+            style="font-size: 1.1rem; padding: 0.5rem 0;"
+          >
+            {item.label}
+          </a>
+        ))}
+        <div style="margin-top: auto; padding-top: 2rem; border-top: 1px solid var(--color-border-light); display: flex; flex-direction: column; gap: 1rem;">
+          <a href="tel:+6285171605225" class="btn btn-red-pulse" style="width: 100%; font-size: 0.85rem; padding: 0.75rem;">
+            Darurat 24/7
+          </a>
+          <a href="https://wa.me/6285171605225?text=Halo%20Aurelius%20Law%20Office,%20saya%20ingin%20melakukan%20konsultasi%20hukum." class="btn btn-gold-outline" style="width: 100%; font-size: 0.85rem; padding: 0.75rem;">
+            WhatsApp Chat
+          </a>
+        </div>
+      </nav>
+
+    </div>
+  </header>
+
+  <!-- Konten Utama Halaman -->
+  <main style="min-height: calc(100vh - 450px);">
+    <slot />
+  </main>
+
+  <!-- Footer Resmi -->
+  <footer class="no-print" style="background-color: var(--color-bg-alabaster); border-top: 1px solid var(--color-border-gold); padding: 5rem 0 3rem 0; color: var(--color-text-secondary);">
+    <div class="container">
+      <div class="grid-3" style="margin-bottom: 4rem;">
+        
+        <!-- Kolom Informasi Firma -->
+        <div>
+          <h3 style="color: var(--color-text-primary); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 1.25rem;">
+            Aurelius & Associates
+          </h3>
+          <p style="font-size: 0.9rem; max-width: 320px; line-height: 1.7; margin-bottom: 1.5rem;">
+            Firma hukum butik modern dengan dedikasi penuh pada integritas tanpa kompromi, melindungi aset digital, hak cipta intelektual, dan pembelaan kasus korporasi bernilai tinggi.
+          </p>
+          <div style="display: flex; gap: 1rem; align-items: center;">
+            <span style="font-size: 0.8rem; color: var(--color-text-light); text-transform: uppercase; letter-spacing: 0.05em;">Brand Vibe:</span>
+            <span style="font-size: 0.85rem; color: var(--color-gold-dark); font-weight: 600;">Editorial Luxury & Trust</span>
+          </div>
+        </div>
+
+        <!-- Kolom Navigasi Cepat -->
+        <div style="padding-left: 2rem;">
+          <h4 style="color: var(--color-text-primary); margin-bottom: 1.25rem; font-size: 1rem; text-transform: uppercase; letter-spacing: 0.05em;">Navigasi Cepat</h4>
+          <ul style="list-style: none; display: flex; flex-direction: column; gap: 0.75rem; font-size: 0.9rem;">
+            {navItems.map(item => (
+              <li>
+                <a href={item.href} style="color: var(--color-text-secondary); hover: color: var(--color-gold-dark);">
+                  {item.label}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <!-- Kolom Hubungi Kami & Kantor -->
+        <div>
+          <h4 style="color: var(--color-text-primary); margin-bottom: 1.25rem; font-size: 1rem; text-transform: uppercase; letter-spacing: 0.05em;">Kantor SCBD Jakarta</h4>
+          <p style="font-size: 0.9rem; line-height: 1.6; margin-bottom: 1rem;">
+            Treasury Tower, 48th Floor, SCBD Lot 28<br />
+            Jl. Jenderal Sudirman Kav. 52-53, Jakarta Selatan 12190<br />
+            DKI Jakarta, Indonesia
+          </p>
+          <div style="font-size: 0.9rem; display: flex; flex-direction: column; gap: 0.5rem; margin-top: 1rem;">
+            <div>
+              <span style="font-weight: 600; color: var(--color-text-primary);">Hotline:</span>{' '}
+              <a href="tel:+6285171605225" style="color: var(--color-gold-dark); font-weight: 600;">+62 851-7160-5225</a>
+            </div>
+            <div>
+              <span style="font-weight: 600; color: var(--color-text-primary);">WhatsApp:</span>{' '}
+              <a href="https://wa.me/6285171605225?text=Halo%20Aurelius%20Law%20Office" style="color: var(--color-gold-dark); font-weight: 600;">Hubungi Kami</a>
+            </div>
+            <div>
+              <span style="font-weight: 600; color: var(--color-text-primary);">Email:</span>{' '}
+              <a href="mailto:luqi.akhilfa@gmail.com" style="color: var(--color-text-secondary);">luqi.akhilfa@gmail.com</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Garis Batas & Copyright -->
+      <div style="border-top: 1px solid var(--color-border-light); padding-top: 2rem; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; font-size: 0.85rem; color: var(--color-text-light);">
+        <div>
+          &copy; {new Date().getFullYear()} Aurelius & Associates Law Office. All Rights Reserved.
+        </div>
+        <div style="display: flex; gap: 1.5rem; margin-top: 0.5rem;">
+          <span style="color: var(--color-gold-dark); font-weight: 500;">Zero-JS Client Execution</span>
+          <span>Transparansi Radikal</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

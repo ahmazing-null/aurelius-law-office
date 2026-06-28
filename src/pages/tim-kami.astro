@@ -1,0 +1,80 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+import CardAttorney from '../components/CardAttorney.astro';
+
+const attorneys = [
+  {
+    name: 'Adrian Aurelius, S.H., LL.M.',
+    role: 'Managing Partner',
+    specialization: 'International Corporate Strategy, Mergers & Acquisitions, & White-Collar Defense.',
+    alumnus: 'Universitas Indonesia (S.H.) & Harvard Law School (LL.M.)',
+    avatarSeed: 'adrian'
+  },
+  {
+    name: 'Dian Sastro Wardoyo, S.H., M.H.',
+    role: 'Senior Partner',
+    specialization: 'Intellectual Property Rights, Cyber Law, Luxury Brands IP Protection, & Digital Privacy.',
+    alumnus: 'Universitas Gadjah Mada (S.H., M.H.)',
+    avatarSeed: 'dian'
+  },
+  {
+    name: 'Bintang Ramadhan, S.H.',
+    role: 'Senior Associate',
+    specialization: 'Commercial Litigation, High-Stakes Dispute Resolution, Corporate Bankruptcy, & Regulatory Compliance.',
+    alumnus: 'Institut Teknologi Bandung - Hukum Bisnis & Kepatuhan Korporat (S.H.)',
+    avatarSeed: 'bintang'
+  }
+];
+---
+
+<MainLayout 
+  title="Tim Advokat" 
+  description="Hubungi tim advokat dan ahli hukum elit Aurelius & Associates. Kemitraan strategis dengan lulusan universitas terbaik dunia untuk melindungi hak hukum Anda."
+>
+
+  <!-- TEAM DIRECTORY SECTION -->
+  <section class="section-padding" style="background-color: var(--color-bg-white);">
+    <div class="container">
+      
+      <!-- Section Header -->
+      <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 4rem; flex-wrap: wrap; gap: 1.5rem;">
+        <div>
+          <span class="badge-gold">Dewan Advokat</span>
+          <h2 style="margin-top: 0.5rem; margin-bottom: 0.5rem; font-weight: 800; color: var(--color-text-primary);">Kemitraan Advokat Elit</h2>
+          <p style="font-size: 1rem; color: var(--color-text-secondary); max-width: 500px; margin: 0;">
+            Tim ahli hukum terakreditasi internasional yang memadukan teori akademis elit dengan eksekusi pertahanan perkara secara agresif.
+          </p>
+        </div>
+        
+        <!-- Print Button (Pure CSS Trigger: calls browser's print dialog via a standard inline trigger link or a print-ready instruction block) -->
+        <!-- We use an elegant print instruction box since client-side JS is forbidden. We can instruct user to press Ctrl+P for an optimized document print layout. -->
+        <div class="no-print" style="border: 0.5px solid var(--color-gold); padding: 0.75rem 1.25rem; border-radius: var(--radius-sm); font-size: 0.85rem; color: var(--color-text-secondary); display: flex; align-items: center; gap: 0.5rem; background: var(--color-bg-alabaster);">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" style="width: 18px; height: 18px; color: var(--color-gold-dark);">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6.72 13.82l-.24-.047A4.9 4.9 0 013 9c0-2.761 2.239-5 5-5a4.9 4.9 0 014.78 3.82m0 0a4.897 4.897 0 014.04 1.832c.983.336 1.829.986 2.42 1.818M12 3v13.5m0 0l-3-3m3 3l3-3M2 21h20" />
+          </svg>
+          <span>Tekan <strong style="color: var(--color-text-primary);">Ctrl + P</strong> untuk Cetak Profil Resmi</span>
+        </div>
+      </div>
+
+      <!-- Attorney Cards Grid -->
+      <div class="grid-3" style="gap: 2rem;">
+        {attorneys.map(attorney => (
+          <CardAttorney 
+            name={attorney.name}
+            role={attorney.role}
+            specialization={attorney.specialization}
+            alumnus={attorney.alumnus}
+            avatarSeed={attorney.avatarSeed}
+          />
+        ))}
+      </div>
+
+      <!-- Professional Ethics Footnote -->
+      <div class="no-print" style="margin-top: 5rem; border-top: 1px solid var(--color-border-light); padding-top: 2rem; text-align: center; color: var(--color-text-light); font-size: 0.85rem; font-style: italic;">
+        "Seluruh advokat Aurelius & Associates terdaftar secara resmi di Perhimpunan Advokat Indonesia (PERADI) dan tunduk sepenuhnya pada Kode Etik Advokat Indonesia."
+      </div>
+
+    </div>
+  </section>
+
+</MainLayout>
