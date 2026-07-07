@@ -1,77 +1,58 @@
 ---
 import MainLayout from '../layouts/MainLayout.astro';
+
+const successUrl = Astro.url.origin + '/sukses';
 ---
 
-<MainLayout 
-  title="Hubungi Kami & Layanan Darurat" 
-  description="Hubungi kantor hukum Aurelius & Associates. Isi formulir konsultasi rahasia atau aktifkan protokol darurat hukum krisis 24/7."
+<MainLayout
+  title="Hubungi Kami"
+  description="Hubungi Aurelius & Associates. Isi formulir konsultasi rahasia atau aktifkan layanan darurat hukum 24/7."
 >
 
-  <section class="section-padding" style="background-color: var(--color-bg-white); position: relative;">
+  <section class="section-padding">
     <div class="container">
-      
-      <!-- EMERGENCY RED HUB ALERT (Inovasi 1) -->
-      <div class="emergency-hub-alert glass-panel" style="background-color: rgba(192, 57, 43, 0.05); border: 1.5px solid var(--color-accent-red); border-radius: var(--radius-sm); padding: 2rem; margin-bottom: 4rem; display: flex; align-items: center; justify-content: space-between; gap: 2rem; box-shadow: var(--shadow-red-glow);">
-        <div style="display: flex; align-items: flex-start; gap: 1rem;">
-          <!-- SVG Warning Triangle -->
-          <div style="color: var(--color-accent-red); flex-shrink: 0; margin-top: 0.25rem;">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" style="width: 32px; height: 32px;">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126zM12 15.75h.007v.008H12v-.008z" />
-            </svg>
-          </div>
+
+      <aside class="emergency-banner no-print" role="note" aria-label="Layanan darurat hukum">
+        <div class="emergency-banner__content">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126zM12 15.75h.007v.008H12v-.008z" />
+          </svg>
           <div>
-            <h3 class="hide-mobile" style="color: var(--color-accent-red); font-size: 1.25rem; font-weight: 800; margin-bottom: 0.5rem; text-transform: uppercase; letter-spacing: 0.05em;">Protokol Darurat Hukum 24/7</h3>
-            <p class="hide-mobile" style="color: var(--color-text-secondary); margin: 0; font-size: 0.95rem;">
-              Jika Anda sedang menghadapi pemeriksaan mendadak, penggeledahan, atau situasi hukum kritis saat ini, <strong>jangan mengisi formulir</strong>. Tekan tombol darurat sekarang juga untuk tersambung ke WhatsApp hotline kami.
-            </p>
-            <!-- Mobile-only text -->
-            <p class="show-mobile-text" style="display: none; color: #ffffff; font-size: 0.85rem; margin: 0; line-height: 1.4;">
-              <strong>DARURAT KRISIS HUKUM 24/7</strong>: Jangan isi form jika dalam pemeriksaan mendadak. Klik tombol di kanan.
-            </p>
+            <h2 class="emergency-banner__title">Protokol Darurat Hukum 24/7</h2>
+            <p>Jika Anda sedang menghadapi pemeriksaan mendadak atau situasi kritis, <strong>jangan mengisi formulir</strong>. Hubungi hotline kami langsung.</p>
           </div>
         </div>
-        
-        <a href="https://wa.me/6285171605225?text=Halo%20Aurelius%20Law%20Office,%20saya%20sedang%20menghadapi%20krisis/pemeriksaan%20hukum%20mendadak%20dan%20memerlukan%20pendampingan%20darurat%20segera." class="btn btn-red-pulse emergency-btn-mobile" style="padding: 0.85rem 1.75rem; font-size: 0.85rem; flex-shrink: 0; white-space: nowrap; border: 1px solid rgba(255,255,255,0.2);">
-          Hubungi Darurat 24/7
-        </a>
-      </div>
+        <a href="https://wa.me/6285171605225?text=Halo%20Aurelius%20Law%20Office,%20saya%20sedang%20menghadapi%20krisis%20hukum%20mendadak." class="btn btn-emergency btn--sm">Hubungi Darurat</a>
+      </aside>
 
-      <div class="grid-2" style="gap: 4rem; align-items: start;">
-        
-        <!-- LEFT COLUMN: SECURE FORM & ENCRYPTED DROPZONE -->
+      <div class="grid-2 contact-grid">
         <div>
           <span class="badge-gold">Hubungi Kami</span>
-          <h2 style="margin-top: 0.5rem; margin-bottom: 2rem; font-weight: 800; color: var(--color-text-primary);">Formulir Konsultasi Kepatuhan</h2>
-          
-          <form action="https://formspree.io/f/luqi.akhilfa@gmail.com" method="POST" style="display: flex; flex-direction: column; gap: 1.5rem;">
-            
-            <!-- Honeypot anti-spam -->
-            <input type="text" name="_gotcha" style="display:none" />
-            <!-- Custom Success Redirect -->
-            <!-- Kita mengarahkan ke halaman sukses statis kami -->
-            <input type="hidden" name="_next" value="http://localhost:4321/sukses" />
-            
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
-              <div style="display: flex; flex-direction: column; gap: 0.5rem;">
-                <label for="form-name" style="font-size: 0.8rem; font-weight: 700; text-transform: uppercase; color: var(--color-text-primary); letter-spacing: 0.05em;">Nama Lengkap *</label>
-                <input type="text" id="form-name" name="name" required placeholder="Contoh: Adrian Aurelius" style="padding: 0.85rem; border: 1px solid var(--color-border-gold); border-radius: var(--radius-sm); font-family: var(--font-primary); font-size: 0.9rem; outline: none; transition: var(--transition-fast);" />
+          <h1 class="section-heading">Formulir Konsultasi</h1>
+
+          <form action="https://formspree.io/f/luqi.akhilfa@gmail.com" method="POST" class="form-stack">
+            <input type="text" name="_gotcha" hidden tabindex="-1" autocomplete="off" />
+            <input type="hidden" name="_next" value={successUrl} />
+
+            <div class="form-grid">
+              <div class="form-field">
+                <label class="form-label" for="form-name">Nama Lengkap *</label>
+                <input class="form-input" type="text" id="form-name" name="name" required placeholder="Contoh: Adrian Aurelius" />
               </div>
-              
-              <div style="display: flex; flex-direction: column; gap: 0.5rem;">
-                <label for="form-phone" style="font-size: 0.8rem; font-weight: 700; text-transform: uppercase; color: var(--color-text-primary); letter-spacing: 0.05em;">Nomor WhatsApp *</label>
-                <input type="tel" id="form-phone" name="phone" required placeholder="Contoh: 085171605225" style="padding: 0.85rem; border: 1px solid var(--color-border-gold); border-radius: var(--radius-sm); font-family: var(--font-primary); font-size: 0.9rem; outline: none; transition: var(--transition-fast);" />
+              <div class="form-field">
+                <label class="form-label" for="form-phone">Nomor WhatsApp *</label>
+                <input class="form-input" type="tel" id="form-phone" name="phone" required placeholder="Contoh: 085171605225" />
               </div>
             </div>
 
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
-              <div style="display: flex; flex-direction: column; gap: 0.5rem;">
-                <label for="form-email" style="font-size: 0.8rem; font-weight: 700; text-transform: uppercase; color: var(--color-text-primary); letter-spacing: 0.05em;">Alamat Email *</label>
-                <input type="email" id="form-email" name="email" required placeholder="nama@perusahaan.com" style="padding: 0.85rem; border: 1px solid var(--color-border-gold); border-radius: var(--radius-sm); font-family: var(--font-primary); font-size: 0.9rem; outline: none; transition: var(--transition-fast);" />
+            <div class="form-grid">
+              <div class="form-field">
+                <label class="form-label" for="form-email">Alamat Email *</label>
+                <input class="form-input" type="email" id="form-email" name="email" required placeholder="nama@perusahaan.com" />
               </div>
-              
-              <div style="display: flex; flex-direction: column; gap: 0.5rem;">
-                <label for="form-category" style="font-size: 0.8rem; font-weight: 700; text-transform: uppercase; color: var(--color-text-primary); letter-spacing: 0.05em;">Kategori Hukum *</label>
-                <select id="form-category" name="category" required style="padding: 0.85rem; border: 1px solid var(--color-border-gold); border-radius: var(--radius-sm); font-family: var(--font-primary); font-size: 0.9rem; outline: none; background-color: var(--color-bg-white); transition: var(--transition-fast);">
+              <div class="form-field">
+                <label class="form-label" for="form-category">Kategori Hukum *</label>
+                <select class="form-select" id="form-category" name="category" required>
                   <option value="Korporasi">Hukum Korporasi & M&A</option>
                   <option value="HAKI">Hak Kekayaan Intelektual & Teknologi</option>
                   <option value="Pidana Bisnis">Litigasi Komersial / Pidana Bisnis</option>
@@ -80,95 +61,51 @@ import MainLayout from '../layouts/MainLayout.astro';
               </div>
             </div>
 
-            <div style="display: flex; flex-direction: column; gap: 0.5rem;">
-              <label for="form-message" style="font-size: 0.8rem; font-weight: 700; text-transform: uppercase; color: var(--color-text-primary); letter-spacing: 0.05em;">Kronologi Singkat / Keterangan Kasus *</label>
-              <textarea id="form-message" name="message" required rows="5" placeholder="Tuliskan latar belakang masalah hukum Anda secara singkat..." style="padding: 0.85rem; border: 1px solid var(--color-border-gold); border-radius: var(--radius-sm); font-family: var(--font-primary); font-size: 0.9rem; outline: none; resize: vertical; transition: var(--transition-fast);"></textarea>
+            <div class="form-field">
+              <label class="form-label" for="form-message">Kronologi Singkat / Keterangan Kasus *</label>
+              <textarea class="form-textarea" id="form-message" name="message" required rows="5" placeholder="Tuliskan latar belakang masalah hukum Anda secara singkat..."></textarea>
             </div>
 
-            <!-- ENCRYPTED DROPZONE UI (Inovasi 3) -->
-            <div style="display: flex; flex-direction: column; gap: 0.5rem;">
-              <label style="font-size: 0.8rem; font-weight: 700; text-transform: uppercase; color: var(--color-text-primary); letter-spacing: 0.05em;">Submisi Dokumen Rahasia (Encrypted Dropzone)</label>
-              <div class="encrypted-dropzone" style="border: 1.5px dashed var(--color-gold); background-color: var(--color-bg-alabaster); border-radius: var(--radius-sm); padding: 2rem; text-align: center; cursor: pointer; position: relative; transition: var(--transition-fast);">
-                <input type="file" name="attachment" style="position: absolute; inset: 0; width: 100%; height: 100%; opacity: 0; cursor: pointer; z-index: 10;" />
-                
-                <div style="color: var(--color-gold-dark); display: flex; flex-direction: column; align-items: center; gap: 0.75rem; position: relative; z-index: 2;">
-                  <!-- Padlock / Security Shield Icon -->
-                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" style="width: 40px; height: 40px;">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M16.5 10.5V6.75a4.5 4.5 0 1 0-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 0 0 2.25-2.25v-6.75a2.25 2.25 0 0 0-2.25-2.25H6.75a2.25 2.25 0 0 0-2.25 2.25v6.75a2.25 2.25 0 0 0 2.25 2.25Z" />
-                  </svg>
-                  <div>
-                    <span style="font-weight: 700; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.05em; display: block; color: var(--color-text-primary); margin-bottom: 0.25rem;">Confidential Document Vault</span>
-                    <p style="font-size: 0.8rem; color: var(--color-text-secondary); margin: 0; max-width: 320px; line-height: 1.5;">
-                      Tarik berkas bukti digital terenkripsi di sini atau klik untuk mengunggah. (Enkripsi AES-256 Otomatis)
-                    </p>
-                  </div>
-                </div>
+            <div class="form-field">
+              <label class="form-label" for="form-attachment">Lampiran Dokumen (Opsional)</label>
+              <div class="file-dropzone">
+                <input type="file" id="form-attachment" name="attachment" />
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M16.5 10.5V6.75a4.5 4.5 0 1 0-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 0 0 2.25-2.25v-6.75a2.25 2.25 0 0 0-2.25-2.25H6.75a2.25 2.25 0 0 0-2.25 2.25v6.75a2.25 2.25 0 0 0 2.25 2.25Z" />
+                </svg>
+                <span class="file-dropzone__title">Unggah Dokumen Rahasia</span>
+                <span class="file-dropzone__hint">Klik atau tarik berkas ke sini. Maks. ukuran sesuai kebijakan Formspree.</span>
               </div>
             </div>
 
-            <div style="margin-top: 1rem;">
-              <button type="submit" class="btn btn-gold-outline" style="width: 100%; padding: 1rem;" id="form-submit-btn">
-                Kirim Dokumen Konsultasi Aman
-              </button>
-            </div>
-
+            <button type="submit" class="btn btn-gold-solid btn--block">Kirim Permintaan Konsultasi</button>
           </form>
         </div>
-        
-        <!-- RIGHT COLUMN: WARRANT MITIGATOR (Inovasi 2) -->
+
         <div>
-          <span class="badge-gold">Panduan Kepatuhan Kritis</span>
-          <h2 style="margin-top: 0.5rem; margin-bottom: 2rem; font-weight: 800; color: var(--color-text-primary);">Warrant Mitigator Guide</h2>
-          <p style="font-size: 0.95rem; line-height: 1.7; color: var(--color-text-secondary); margin-bottom: 2.5rem;">
-            Protokol hukum taktis murni CSS untuk memandu tim kepatuhan internal Anda mengambil tindakan hukum yang tepat saat menghadapi penggeledahan aparat penegak hukum mendadak.
-          </p>
+          <span class="badge-gold">Panduan Kepatuhan</span>
+          <h2 class="section-heading">Panduan Penanganan Surat Perintah</h2>
+          <p>Protokol hukum untuk memandu tim kepatuhan internal saat menghadapi penggeledahan aparat penegak hukum.</p>
 
-          <!-- CSS ACCORDION USING DETAILS ELEMENT -->
-          <div class="accordion-warrant" style="display: flex; flex-direction: column; gap: 1rem;">
-            
-            <details class="warrant-step glass-panel" open style="border-radius: var(--radius-sm); overflow: hidden; border-color: var(--color-border-gold); background: var(--color-bg-alabaster);">
-              <summary style="padding: 1.25rem; font-weight: 700; font-size: 0.95rem; color: var(--color-text-primary); cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--color-border-light);">
-                <span>Langkah 1: Verifikasi Identitas & Surat Tugas</span>
-                <span class="accordion-arrow" style="font-size: 0.8rem; color: var(--color-gold-dark);">▼</span>
-              </summary>
-              <div style="padding: 1.5rem; font-size: 0.9rem; line-height: 1.6; color: var(--color-text-secondary); background-color: var(--color-bg-white);">
-                Mintalah kartu identitas resmi seluruh petugas penegak hukum dan Surat Perintah Penggeledahan/Penyitaan tertulis. Catat nama, institusi, dan nomor surat perintah. Pastikan tanda tangan dan cap stempel lembaga penegak hukum berwenang valid.
-              </div>
+          <div class="accordion">
+            <details class="accordion-item" open>
+              <summary>Langkah 1: Verifikasi Identitas & Surat Tugas</summary>
+              <p>Mintalah kartu identitas resmi seluruh petugas dan Surat Perintah Penggeledahan/Penyitaan tertulis. Catat nama, institusi, dan nomor surat perintah. Pastikan tanda tangan dan cap stempel lembaga berwenang valid.</p>
             </details>
-
-            <details class="warrant-step glass-panel" style="border-radius: var(--radius-sm); overflow: hidden; border-color: var(--color-border-gold); background: var(--color-bg-alabaster);">
-              <summary style="padding: 1.25rem; font-weight: 700; font-size: 0.95rem; color: var(--color-text-primary); cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--color-border-light);">
-                <span>Langkah 2: Hubungi Advokat Aurelius Segera</span>
-                <span class="accordion-arrow" style="font-size: 0.8rem; color: var(--color-gold-dark);">▼</span>
-              </summary>
-              <div style="padding: 1.5rem; font-size: 0.9rem; line-height: 1.6; color: var(--color-text-secondary); background-color: var(--color-bg-white);">
-                Hubungi hotline darurat kami di <strong style="color: var(--color-gold-dark);">+62 851-7160-5225</strong>. Anda memiliki hak konstitusional penuh di bawah KUHAP untuk didampingi Penasihat Hukum sebelum memberikan pernyataan, akses data, atau menyerahkan dokumen berkas perkara apa pun.
-              </div>
+            <details class="accordion-item">
+              <summary>Langkah 2: Hubungi Advokat Segera</summary>
+              <p>Hubungi hotline darurat kami di <strong>+62 851-7160-5225</strong>. Anda memiliki hak konstitusional penuh di bawah KUHAP untuk didampingi penasihat hukum sebelum memberikan pernyataan atau menyerahkan dokumen.</p>
             </details>
-
-            <details class="warrant-step glass-panel" style="border-radius: var(--radius-sm); overflow: hidden; border-color: var(--color-border-gold); background: var(--color-bg-alabaster);">
-              <summary style="padding: 1.25rem; font-weight: 700; font-size: 0.95rem; color: var(--color-text-primary); cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--color-border-light);">
-                <span>Langkah 3: Batasi Penggeledahan Sesuai Izin</span>
-                <span class="accordion-arrow" style="font-size: 0.8rem; color: var(--color-gold-dark);">▼</span>
-              </summary>
-              <div style="padding: 1.5rem; font-size: 0.9rem; line-height: 1.6; color: var(--color-text-secondary); background-color: var(--color-bg-white);">
-                Tunjukkan ruangan, lemari, atau berkas yang hanya dicantumkan secara spesifik di dalam Surat Perintah Penggeledahan. Ajukan penolakan/keberatan secara tertulis dan catat jika petugas mencoba menyita aset di luar deskripsi perkara surat tersebut.
-              </div>
+            <details class="accordion-item">
+              <summary>Langkah 3: Batasi Penggeledahan Sesuai Izin</summary>
+              <p>Tunjukkan ruangan atau berkas yang hanya dicantumkan spesifik di Surat Perintah. Ajukan keberatan tertulis jika petugas mencoba menyita aset di luar deskripsi surat.</p>
             </details>
-
-            <details class="warrant-step glass-panel" style="border-radius: var(--radius-sm); overflow: hidden; border-color: var(--color-border-gold); background: var(--color-bg-alabaster);">
-              <summary style="padding: 1.25rem; font-weight: 700; font-size: 0.95rem; color: var(--color-text-primary); cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--color-border-light);">
-                <span>Langkah 4: Lindungi Kunci & Hak Istimewa Advokat</span>
-                <span class="accordion-arrow" style="font-size: 0.8rem; color: var(--color-gold-dark);">▼</span>
-              </summary>
-              <div style="padding: 1.5rem; font-size: 0.9rem; line-height: 1.6; color: var(--color-text-secondary); background-color: var(--color-bg-white);">
-                Nyatakan secara tertulis perlindungan hak istimewa advokat-klien (attorney-client privilege) atas dokumen korespondensi hukum perusahaan. Jangan memberikan kata sandi (password) enkripsi data siber tanpa adanya penetapan penyitaan siber pengadilan yang sah.
-              </div>
+            <details class="accordion-item">
+              <summary>Langkah 4: Lindungi Hak Istimewa Advokat</summary>
+              <p>Nyatakan perlindungan hak istimewa advokat-klien atas korespondensi hukum perusahaan. Jangan memberikan kata sandi enkripsi data tanpa penetapan penyitaan siber pengadilan yang sah.</p>
             </details>
-
           </div>
         </div>
-
       </div>
 
     </div>
@@ -177,77 +114,166 @@ import MainLayout from '../layouts/MainLayout.astro';
 </MainLayout>
 
 <style>
-  /* Dropzone hover effect */
-  .encrypted-dropzone:hover {
-    border-color: var(--color-text-primary) !important;
-    background-color: var(--color-bg-white) !important;
-    box-shadow: var(--shadow-sm);
+  .emergency-banner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-6);
+    padding: var(--space-6) var(--space-8);
+    margin-bottom: var(--space-16);
+    background: rgba(185, 28, 28, 0.04);
+    border: 1px solid rgba(185, 28, 28, 0.2);
+    border-left: 3px solid var(--color-accent-red);
+    border-radius: var(--radius-sm);
+    flex-wrap: wrap;
   }
-  
-  /* Details element arrow spin */
-  .warrant-step[open] .accordion-arrow {
-    transform: rotate(180deg);
+
+  .emergency-banner__content {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-4);
+    flex: 1;
+    min-width: 200px;
   }
-  .accordion-arrow {
+
+  .emergency-banner__content svg {
+    width: 28px;
+    height: 28px;
+    color: var(--color-accent-red);
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  .emergency-banner__title {
+    font-family: var(--font-primary);
+    font-size: 0.875rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--color-accent-red);
+    margin-bottom: var(--space-2);
+  }
+
+  .emergency-banner p {
+    font-size: 0.9rem;
+    margin: 0;
+  }
+
+  .contact-grid {
+    gap: var(--space-16);
+    align-items: start;
+  }
+
+  .contact-grid h1,
+  .contact-grid h2 {
+    margin-bottom: var(--space-8);
+  }
+
+  .file-dropzone {
+    position: relative;
+    border: 1px dashed var(--color-border-gold);
+    background: var(--surface-muted);
+    border-radius: var(--radius-sm);
+    padding: var(--space-8);
+    text-align: center;
     transition: var(--transition-fast);
   }
-  
-  /* Focus States for Inputs */
-  input[type="text"]:focus,
-  input[type="tel"]:focus,
-  input[type="email"]:focus,
-  select:focus,
-  textarea:focus {
-    border-color: var(--color-text-primary) !important;
-    box-shadow: var(--shadow-sm);
+
+  .file-dropzone:hover {
+    border-color: var(--color-gold-dark);
+    background: var(--color-bg-white);
   }
 
-  /* Logika Bar Darurat Selalu Aktif di Mobile (Inovasi 1) */
+  .file-dropzone input[type="file"] {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    cursor: pointer;
+  }
+
+  .file-dropzone svg {
+    width: 32px;
+    height: 32px;
+    color: var(--color-gold-dark);
+    margin: 0 auto var(--space-3);
+  }
+
+  .file-dropzone__title {
+    display: block;
+    font-size: 0.8125rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--color-text-primary);
+    margin-bottom: var(--space-1);
+  }
+
+  .file-dropzone__hint {
+    font-size: 0.8125rem;
+    color: var(--color-text-muted);
+  }
+
+  .accordion {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+    margin-top: var(--space-8);
+  }
+
+  .accordion-item {
+    border: 1px solid var(--color-border-light);
+    border-radius: var(--radius-sm);
+    background: var(--surface-muted);
+    overflow: hidden;
+  }
+
+  .accordion-item summary {
+    padding: var(--space-4) var(--space-5);
+    font-weight: 600;
+    font-size: 0.9375rem;
+    font-family: var(--font-primary);
+    color: var(--color-text-primary);
+    cursor: pointer;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .accordion-item summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .accordion-item summary::after {
+    content: '+';
+    font-size: 1.1rem;
+    color: var(--color-gold-dark);
+    font-weight: 400;
+    transition: transform 0.2s ease;
+  }
+
+  .accordion-item[open] summary::after {
+    content: '−';
+  }
+
+  .accordion-item p {
+    padding: 0 var(--space-5) var(--space-5);
+    font-size: 0.9rem;
+    line-height: 1.65;
+    background: var(--color-bg-white);
+    margin: 0;
+  }
+
   @media (max-width: 768px) {
-    .emergency-hub-alert {
-      position: fixed !important;
-      bottom: 0 !important;
-      left: 0 !important;
-      right: 0 !important;
-      z-index: 9999 !important;
-      border-radius: 0 !important;
-      margin: 0 !important;
-      border-top: 2px solid var(--color-accent-red) !important;
-      background: rgba(192, 57, 43, 0.98) !important;
-      color: #ffffff !important;
-      box-shadow: 0 -5px 25px rgba(0, 0, 0, 0.25) !important;
-      padding: 1rem 1.5rem !important;
-      display: flex !important;
-      align-items: center !important;
-      justify-content: space-between !important;
-    }
-    
-    .emergency-hub-alert p {
-      color: #ffffff !important;
+    .emergency-banner {
+      flex-direction: column;
+      align-items: stretch;
     }
 
-    .emergency-hub-alert .hide-mobile {
-      display: none !important;
-    }
-    
-    .emergency-hub-alert .show-mobile-text {
-      display: block !important;
-    }
-    
-    .emergency-btn-mobile {
-      background-color: #ffffff !important;
-      color: var(--color-accent-red) !important;
-      padding: 0.5rem 1rem !important;
-      font-size: 0.75rem !important;
-      font-weight: 800 !important;
-      border-radius: 2px !important;
-      animation: none !important;
-      box-shadow: none !important;
-    }
-    
-    /* Tambahkan padding-bottom pada body agar form tidak tertutup bar darurat di mobile */
-    body {
-      padding-bottom: 80px !important;
+    .emergency-banner .btn {
+      width: 100%;
     }
   }
 </style>

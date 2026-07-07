@@ -1,0 +1,36 @@
+---
+interface Props {
+  title: string;
+  description?: string;
+  primaryLabel?: string;
+  primaryHref?: string;
+  secondaryLabel?: string;
+  secondaryHref?: string;
+}
+
+const {
+  title,
+  description,
+  primaryLabel = 'Konsultasi Sekarang',
+  primaryHref = '/kontak',
+  secondaryLabel,
+  secondaryHref,
+} = Astro.props;
+---
+
+<section class="cta-band no-print">
+  <div class="container">
+    <div class="cta-band__inner">
+      <div>
+        <h2>{title}</h2>
+        {description && <p>{description}</p>}
+      </div>
+      <div class="cta-band__actions">
+        <a href={primaryHref} class="btn btn-gold-solid btn--lg">{primaryLabel}</a>
+        {secondaryLabel && secondaryHref && (
+          <a href={secondaryHref} class="btn btn-gold-outline btn--lg">{secondaryLabel}</a>
+        )}
+      </div>
+    </div>
+  </div>
+</section>

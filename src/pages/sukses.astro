@@ -2,50 +2,87 @@
 import MainLayout from '../layouts/MainLayout.astro';
 ---
 
-<MainLayout 
-  title="Pesan Terkirim" 
-  description="Terima kasih, pesan Anda telah berhasil dikirimkan dengan enkripsi aman ke Aurelius & Associates Law Office."
+<MainLayout
+  title="Pesan Terkirim"
+  description="Terima kasih, pesan Anda telah berhasil dikirim ke Aurelius & Associates Law Office."
 >
 
-  <section class="section-padding" style="background: linear-gradient(180deg, var(--color-bg-white) 0%, var(--color-bg-alabaster) 100%); display: flex; align-items: center; justify-content: center; min-height: calc(100vh - 200px);">
-    <div class="container" style="max-width: 600px; text-align: center;">
-      
-      <!-- Thank You Glassmorphism Card -->
-      <div class="glass-panel" style="padding: 4rem 3rem; border-radius: var(--radius-sm); border-color: var(--color-gold); background: rgba(255, 255, 255, 0.95); box-shadow: var(--shadow-lg); position: relative;">
-        
-        <!-- Glowing Checkmark icon -->
-        <div style="width: 72px; height: 72px; border-radius: 50%; border: 1.5px solid var(--color-gold); display: inline-flex; align-items: center; justify-content: center; color: var(--color-gold-dark); background-color: var(--color-bg-white); margin-bottom: 2rem; box-shadow: var(--shadow-gold-glow);">
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" style="width: 36px; height: 36px;">
+  <section class="section-padding">
+    <div class="container container--narrow">
+      <div class="success-card surface-card">
+        <div class="success-icon" aria-hidden="true">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" />
           </svg>
         </div>
 
-        <span class="badge-gold">Submisi Sukses</span>
-        <h2 class="text-center" style="margin-top: 0.5rem; margin-bottom: 1.5rem; font-weight: 800; font-size: 1.85rem; color: var(--color-text-primary);">
-          Kueri Kepatuhan Terkirim
-        </h2>
-        
-        <p style="font-size: 1rem; line-height: 1.7; color: var(--color-text-secondary); margin-bottom: 2rem; font-weight: 300;">
-          Terima kasih. Berkas kasus dan informasi kontak Anda telah terkirim secara aman ke server kami. Seluruh dokumen yang dikirim dilindungi sepenuhnya oleh <strong>Hak Istimewa Advokat-Klien (Attorney-Client Privilege)</strong> demi kerahasiaan mutlak.
+        <span class="badge-gold">Pesan Terkirim</span>
+        <h1 class="section-heading section-heading--center">Konsultasi Anda Telah Diterima</h1>
+
+        <p>
+          Terima kasih. Informasi kontak dan berkas kasus Anda telah terkirim dengan aman. Seluruh dokumen dilindungi oleh <strong>hak istimewa advokat-klien</strong> demi kerahasiaan mutlak.
         </p>
 
-        <div style="border-top: 1px solid var(--color-border-light); padding-top: 2rem; margin-top: 2rem; display: flex; flex-direction: column; gap: 1rem; align-items: center;">
-          <p style="font-size: 0.85rem; color: var(--color-text-light); margin: 0;">
-            Representatif hukum senior kami akan meninjau berkas Anda dan menghubungi dalam waktu maksimal 2 jam.
-          </p>
-          <div style="display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center; margin-top: 0.5rem;">
-            <a href="/" class="btn btn-gold-outline" style="padding: 0.75rem 1.5rem; font-size: 0.8rem;">
-              Kembali ke Beranda
-            </a>
-            <a href="tel:+6285171605225" class="btn btn-red-pulse" style="padding: 0.75rem 1.5rem; font-size: 0.8rem;">
-              Panggilan Darurat
-            </a>
+        <div class="success-footer">
+          <p class="success-note">Representatif hukum senior kami akan meninjau berkas Anda dan menghubungi dalam waktu maksimal 2 jam kerja.</p>
+          <div class="success-actions">
+            <a href="/" class="btn btn-gold-outline">Kembali ke Beranda</a>
+            <a href="tel:+6285171605225" class="btn btn-emergency">Hotline Darurat</a>
           </div>
         </div>
-
       </div>
-
     </div>
   </section>
 
 </MainLayout>
+
+<style>
+  .success-card {
+    padding: var(--space-16) var(--space-12);
+    border-radius: var(--radius-sm);
+    border-color: var(--color-border-gold);
+    text-align: center;
+  }
+
+  .success-icon {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    border: 1px solid var(--color-gold);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-gold-dark);
+    margin-bottom: var(--space-8);
+  }
+
+  .success-icon svg {
+    width: 32px;
+    height: 32px;
+  }
+
+  .success-footer {
+    border-top: 1px solid var(--color-border-light);
+    padding-top: var(--space-8);
+    margin-top: var(--space-8);
+  }
+
+  .success-note {
+    font-size: 0.875rem;
+    color: var(--color-text-muted);
+    margin-bottom: var(--space-6);
+  }
+
+  .success-actions {
+    display: flex;
+    gap: var(--space-4);
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  @media (max-width: 640px) {
+    .success-card {
+      padding: var(--space-10) var(--space-6);
+    }
+  }
+</style>

@@ -4,124 +4,143 @@ interface Props {
   role: string;
   specialization: string;
   alumnus: string;
-  avatarSeed: string; // seed untuk visual representatif
+  avatarSeed: string;
 }
 
 const { name, role, specialization, alumnus, avatarSeed } = Astro.props;
 ---
 
-<div class="card-attorney glass-panel" style="padding: 2rem; border-radius: var(--radius-sm); transition: var(--transition-normal); display: flex; flex-direction: column; height: 100%;">
-  
-  <!-- Profile Vector Art (Gold Geometric Motif) -->
-  <div class="attorney-avatar-container" style="position: relative; width: 100%; aspect-ratio: 4/5; background-color: var(--color-bg-alabaster); border: 0.5px solid var(--color-border-gold); margin-bottom: 1.5rem; overflow: hidden; display: flex; align-items: center; justify-content: center;">
-    
-    <!-- Premium SVG Geometric Pattern for Placeholder Portrait -->
-    <svg viewBox="0 0 400 500" fill="none" xmlns="http://www.w3.org/2000/svg" style="width: 100%; height: 100%; transition: var(--transition-slow);">
+<article class="card-attorney surface-card">
+  <div class="attorney-avatar-container">
+    <svg viewBox="0 0 400 500" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
       <defs>
         <radialGradient id={`bgGrad-${avatarSeed}`} cx="50%" cy="40%" r="60%">
           <stop offset="0%" stop-color="#FFFFFF" />
           <stop offset="100%" stop-color="#F1EFEA" />
         </radialGradient>
         <linearGradient id={`goldGrad-${avatarSeed}`} x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" stop-color="#D4AF37" />
-          <stop offset="50%" stop-color="#C5A880" />
+          <stop offset="0%" stop-color="#C5A880" />
           <stop offset="100%" stop-color="#9A7F5C" />
         </linearGradient>
       </defs>
-      
-      <!-- Background -->
       <rect width="400" height="500" fill={`url(#bgGrad-${avatarSeed})`} />
-      
-      <!-- Elegant abstract architecture lines -->
       <path d="M50 450 L350 450" stroke="#E2D4C0" stroke-width="1" />
-      <path d="M100 450 L100 100" stroke="#E2D4C0" stroke-width="0.5" stroke-dasharray="4 4" />
-      <path d="M300 450 L300 100" stroke="#E2D4C0" stroke-width="0.5" stroke-dasharray="4 4" />
-      
-      <!-- Concentric protective legal circles -->
-      <circle cx="200" cy="200" r="120" stroke="rgba(197, 168, 128, 0.15)" stroke-width="1" />
-      <circle cx="200" cy="200" r="90" stroke="rgba(197, 168, 128, 0.3)" stroke-width="0.5" />
-      <circle cx="200" cy="200" r="60" stroke={`url(#goldGrad-${avatarSeed})`} stroke-width="0.5" opacity="0.6" />
-      
-      <!-- Stylized portrait silhouette geometric mesh -->
-      <!-- Head / Mind / Law Focus -->
+      <circle cx="200" cy="200" r="90" stroke="rgba(197, 168, 128, 0.25)" stroke-width="0.5" />
       <polygon points="200,100 240,150 200,200 160,150" stroke={`url(#goldGrad-${avatarSeed})`} stroke-width="1" fill="rgba(255, 255, 255, 0.7)" />
-      <circle cx="200" cy="150" r="10" fill="#C5A880" opacity="0.3" />
-      
-      <!-- Torso / Integrity Base -->
       <polygon points="200,200 300,320 270,450 130,450 100,320" stroke={`url(#goldGrad-${avatarSeed})`} stroke-width="1.5" fill="rgba(197, 168, 128, 0.05)" />
-      
-      <!-- Diagonal connecting mesh lines (Precision/Structure) -->
-      <line x1="200" y1="100" x2="200" y2="200" stroke="#C5A880" stroke-width="0.5" />
-      <line x1="160" y1="150" x2="100" y2="320" stroke="#C5A880" stroke-width="0.5" />
-      <line x1="240" y1="150" x2="300" y2="320" stroke="#C5A880" stroke-width="0.5" />
-      <line x1="200" y1="200" x2="130" y2="450" stroke="#C5A880" stroke-width="0.5" />
-      <line x1="200" y1="200" x2="270" y2="450" stroke="#C5A880" stroke-width="0.5" />
-      
-      <!-- Subtle watermark logo -->
       <text x="200" y="475" fill="#9A7F5C" font-family="Plus Jakarta Sans" font-size="12" font-weight="600" letter-spacing="4" text-anchor="middle" opacity="0.7">AURELIUS</text>
     </svg>
-    
-    <!-- Floating Luxury Badge -->
-    <div style="position: absolute; top: 1rem; right: 1rem; background-color: var(--color-text-primary); color: var(--color-bg-white); font-size: 0.65rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; padding: 0.35rem 0.75rem; border: 0.5px solid var(--color-gold); border-radius: 2px;">
-      {role}
-    </div>
+    <span class="attorney-role-badge">{role}</span>
   </div>
 
-  <!-- Profile Details -->
-  <div style="display: flex; flex-direction: column; flex-grow: 1;">
-    <h3 class="attorney-name" style="font-size: 1.35rem; color: var(--color-text-primary); margin-bottom: 0.25rem;">
-      {name}
-    </h3>
-    <span style="font-size: 0.85rem; font-weight: 600; color: var(--color-gold-dark); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 1rem; display: block;">
-      {role}
-    </span>
-    
-    <div style="border-top: 1px solid var(--color-border-light); padding-top: 1rem; margin-top: auto; display: flex; flex-direction: column; gap: 0.75rem;">
+  <div class="attorney-details">
+    <h3>{name}</h3>
+
+    <div class="attorney-meta">
       <div>
-        <span style="font-size: 0.75rem; font-weight: 700; color: var(--color-text-primary); text-transform: uppercase; letter-spacing: 0.05em; display: block; margin-bottom: 0.15rem;">Spesialisasi Hukum</span>
-        <p style="font-size: 0.85rem; line-height: 1.5; color: var(--color-text-secondary); margin: 0;">
-          {specialization}
-        </p>
+        <span class="attorney-meta__label">Spesialisasi</span>
+        <p>{specialization}</p>
       </div>
-      
       <div>
-        <span style="font-size: 0.75rem; font-weight: 700; color: var(--color-text-primary); text-transform: uppercase; letter-spacing: 0.05em; display: block; margin-bottom: 0.15rem;">Alumni Kehormatan</span>
-        <p style="font-size: 0.85rem; line-height: 1.5; color: var(--color-text-secondary); font-style: italic; margin: 0;">
-          {alumnus}
-        </p>
+        <span class="attorney-meta__label">Pendidikan</span>
+        <p class="attorney-meta__alumnus">{alumnus}</p>
       </div>
     </div>
   </div>
-
-</div>
+</article>
 
 <style>
   .card-attorney {
-    border-color: var(--color-border-gold);
-    box-shadow: var(--shadow-sm);
+    padding: var(--space-8);
+    border-radius: var(--radius-sm);
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    transition: var(--transition-normal);
   }
+
   .card-attorney:hover {
-    transform: translateY(-5px);
-    box-shadow: var(--shadow-lg);
-    border-color: var(--color-gold);
+    border-color: var(--color-border-gold);
+    box-shadow: var(--shadow-md);
   }
-  .card-attorney:hover svg {
-    transform: scale(1.03);
+
+  .attorney-avatar-container {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 4/5;
+    background-color: var(--color-bg-alabaster);
+    border: 1px solid var(--color-border-light);
+    margin-bottom: var(--space-6);
+    overflow: hidden;
   }
-  .card-attorney:hover .attorney-name {
-    color: var(--color-gold-dark) !important;
+
+  .attorney-avatar-container svg {
+    width: 100%;
+    height: 100%;
   }
-  
-  /* Print styling rules */
+
+  .attorney-role-badge {
+    position: absolute;
+    top: var(--space-4);
+    right: var(--space-4);
+    background-color: var(--color-text-primary);
+    color: var(--color-bg-white);
+    font-size: 0.625rem;
+    font-weight: 600;
+    font-family: var(--font-primary);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    padding: var(--space-1) var(--space-3);
+    border: 1px solid var(--color-gold);
+    border-radius: var(--radius-sm);
+  }
+
+  .attorney-details {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+  }
+
+  .attorney-details h3 {
+    font-size: 1.25rem;
+    margin-bottom: var(--space-6);
+  }
+
+  .attorney-meta {
+    border-top: 1px solid var(--color-border-light);
+    padding-top: var(--space-4);
+    margin-top: auto;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+  }
+
+  .attorney-meta__label {
+    font-size: 0.6875rem;
+    font-weight: 600;
+    font-family: var(--font-primary);
+    color: var(--color-text-primary);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    display: block;
+    margin-bottom: var(--space-1);
+  }
+
+  .attorney-meta p {
+    font-size: 0.875rem;
+    line-height: 1.55;
+    margin: 0;
+  }
+
+  .attorney-meta__alumnus {
+    font-style: italic;
+  }
+
   @media print {
     .card-attorney {
       border: 1px solid #c5a880 !important;
-      background: #ffffff !important;
+      box-shadow: none !important;
       page-break-inside: avoid;
-    }
-    .attorney-avatar-container {
-      background-color: #f1efea !important;
-      border: 1px solid #c5a880 !important;
     }
   }
 </style>

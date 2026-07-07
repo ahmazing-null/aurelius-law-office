@@ -1,187 +1,250 @@
 ---
-// Kalkulator Transparansi Biaya Hukum Murni CSS
+import SectionHeader from './SectionHeader.astro';
 ---
 
-<div class="fee-calculator-container glass-panel" style="padding: 3rem; border-radius: var(--radius-sm); border-color: var(--color-gold); background: rgba(255, 255, 255, 0.95); box-shadow: var(--shadow-lg);">
-  
-  <div style="text-align: center; margin-bottom: 3rem;">
-    <span class="badge-gold">Radical Transparency</span>
-    <h3 style="font-size: 1.75rem; color: var(--color-text-primary); font-weight: 800; margin-top: 0.5rem; margin-bottom: 0.75rem;">
-      Kalkulator & Struktur Biaya Transparan
-    </h3>
-    <p style="font-size: 0.95rem; color: var(--color-text-secondary); max-width: 600px; margin: 0 auto;">
-      Kami menghapus kecemasan biaya hukum tersembunyi. Pilih model biaya di bawah ini untuk melihat rincian alokasi dan penarifan resmi secara radikal.
-    </p>
+<div class="fee-calculator surface-card">
+  <SectionHeader
+    badge="Transparansi Biaya"
+    title="Kalkulator & Struktur Biaya"
+    description="Pilih model biaya di bawah ini untuk melihat rincian alokasi dan penarifan resmi kami."
+    centered
+  />
+
+  <input type="radio" id="tab-retainer" name="fee-tabs" class="tab-radio-retainer" checked hidden />
+  <input type="radio" id="tab-hourly" name="fee-tabs" class="tab-radio-hourly" hidden />
+  <input type="radio" id="tab-flat" name="fee-tabs" class="tab-radio-flat" hidden />
+
+  <div class="tabs-nav" role="tablist" aria-label="Model biaya">
+    <label for="tab-retainer" class="tab-label label-retainer" role="tab">Retainer Korporasi</label>
+    <label for="tab-hourly" class="tab-label label-hourly" role="tab">Tarif Per Jam</label>
+    <label for="tab-flat" class="tab-label label-flat" role="tab">Paket Tetap</label>
   </div>
 
-  <!-- CSS Tab Control (Radio Buttons) -->
-  <input type="radio" id="tab-retainer" name="fee-tabs" class="tab-radio-retainer" checked style="display: none;" />
-  <input type="radio" id="tab-hourly" name="fee-tabs" class="tab-radio-hourly" style="display: none;" />
-  <input type="radio" id="tab-flat" name="fee-tabs" class="tab-radio-flat" style="display: none;" />
-
-  <!-- Tab Labels (Navigation) -->
-  <div class="tabs-nav-wrapper" style="display: flex; justify-content: center; gap: 1rem; margin-bottom: 2.5rem; border-bottom: 1px solid var(--color-border-light); padding-bottom: 1rem;">
-    <label for="tab-retainer" class="tab-label label-retainer">
-      <span>Corporate Retainer</span>
-    </label>
-    <label for="tab-hourly" class="tab-label label-hourly">
-      <span>Hourly Rate (Per Jam)</span>
-    </label>
-    <label for="tab-flat" class="tab-label label-flat">
-      <span>Flat Fee (Paket Tetap)</span>
-    </label>
-  </div>
-
-  <!-- TAB CONTENT AREA -->
-  <div class="tabs-content-container">
-    
-    <!-- Content 1: Retainer -->
+  <div class="tabs-content">
     <div class="tab-content content-retainer">
-      <div class="grid-2" style="align-items: center; gap: 3rem;">
+      <div class="grid-2 fee-grid">
         <div>
-          <h4 style="font-size: 1.5rem; color: var(--color-text-primary); margin-bottom: 1rem;">Biaya Retainer Korporasi Bulanan</h4>
-          <p style="font-size: 0.95rem; line-height: 1.7; margin-bottom: 1.5rem;">
-            Pilihan proteksi hukum berkelanjutan terbaik untuk perusahaan menengah dan startup berkembang. Tim hukum kami siap bertindak sebagai <em>In-house Counsel</em> eksternal Anda setiap hari.
-          </p>
-          <div style="font-size: 1.85rem; font-weight: 800; color: var(--color-gold-dark); margin-bottom: 1.5rem;">
-            Mulai Rp 15.000.000 <span style="font-size: 0.9rem; font-weight: 400; color: var(--color-text-secondary);">/ bulan</span>
-          </div>
-          <a href="/kontak?kategori=Korporasi" class="btn btn-gold-outline" style="padding: 0.75rem 1.5rem; font-size: 0.8rem;">Ajukan Retainer</a>
+          <h3>Biaya Retainer Korporasi Bulanan</h3>
+          <p>Pilihan proteksi hukum berkelanjutan untuk perusahaan menengah dan startup. Tim kami bertindak sebagai in-house counsel eksternal Anda.</p>
+          <p class="fee-price">Mulai Rp 15.000.000 <span>/ bulan</span></p>
+          <a href="/kontak" class="btn btn-gold-outline btn--sm">Ajukan Retainer</a>
         </div>
-        <div style="background-color: var(--color-bg-alabaster); padding: 2rem; border-radius: var(--radius-sm); border: 0.5px solid var(--color-border-gold);">
-          <span style="font-weight: 700; color: var(--color-text-primary); font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.05em; display: block; margin-bottom: 1rem; border-bottom: 1px solid var(--color-border-light); padding-bottom: 0.5rem;">Alokasi & Cakupan Layanan:</span>
-          <ul style="list-style: none; font-size: 0.9rem; display: flex; flex-direction: column; gap: 0.75rem; color: var(--color-text-secondary);">
-            <li style="display: flex; gap: 0.5rem;"><span style="color: var(--color-gold); font-weight: bold;">✔</span> Alokasi waktu konsultasi hingga 15 jam/bulan</li>
-            <li style="display: flex; gap: 0.5rem;"><span style="color: var(--color-gold); font-weight: bold;">✔</span> Peninjauan & Penyusunan Kontrak Standard</li>
-            <li style="display: flex; gap: 0.5rem;"><span style="color: var(--color-gold); font-weight: bold;">✔</span> Legal Opinion resmi tertulis (1 opini/bulan)</li>
-            <li style="display: flex; gap: 0.5rem;"><span style="color: var(--color-gold); font-weight: bold;">✔</span> Pendampingan Rapat Direksi/Rapat Pemegang Saham</li>
-            <li style="display: flex; gap: 0.5rem; font-style: italic; font-size: 0.85rem; color: var(--color-text-light);"><span style="color: var(--color-gold); font-weight: bold;">ⓘ</span> Kelebihan jam dikenakan diskon khusus 15% dari tarif Hourly.</li>
+        <div class="fee-detail-box">
+          <h4>Alokasi & Cakupan</h4>
+          <ul>
+            <li>Alokasi waktu konsultasi hingga 15 jam/bulan</li>
+            <li>Peninjauan & penyusunan kontrak standard</li>
+            <li>Legal opinion resmi tertulis (1 opini/bulan)</li>
+            <li>Pendampingan rapat direksi/pemegang saham</li>
+            <li class="fee-note">Kelebihan jam dikenakan diskon 15% dari tarif per jam.</li>
           </ul>
         </div>
       </div>
     </div>
 
-    <!-- Content 2: Hourly Rate -->
     <div class="tab-content content-hourly">
-      <div class="grid-2" style="align-items: center; gap: 3rem;">
+      <div class="grid-2 fee-grid">
         <div>
-          <h4 style="font-size: 1.5rem; color: var(--color-text-primary); margin-bottom: 1rem;">Tarif Hukum Per Jam (Hourly Rate)</h4>
-          <p style="font-size: 0.95rem; line-height: 1.7; margin-bottom: 1.5rem;">
-            Ideal untuk proyek korporasi jangka pendek, audit kepatuhan khusus, transaksi merger & akuisisi, atau konsultasi hukum ad-hoc mendadak dengan tingkat kompleksitas tinggi.
-          </p>
-          <div style="font-size: 1.85rem; font-weight: 800; color: var(--color-gold-dark); margin-bottom: 1.5rem;">
-            Rp 1.500.000 - Rp 3.000.000 <span style="font-size: 0.9rem; font-weight: 400; color: var(--color-text-secondary);">/ jam</span>
-          </div>
-          <a href="/kontak?kategori=Darurat" class="btn btn-gold-outline" style="padding: 0.75rem 1.5rem; font-size: 0.8rem;">Mulai Konsultasi</a>
+          <h3>Tarif Hukum Per Jam</h3>
+          <p>Ideal untuk proyek jangka pendek, audit kepatuhan, transaksi M&A, atau konsultasi ad-hoc dengan kompleksitas tinggi.</p>
+          <p class="fee-price">Rp 1.500.000 – Rp 3.000.000 <span>/ jam</span></p>
+          <a href="/kontak" class="btn btn-gold-outline btn--sm">Mulai Konsultasi</a>
         </div>
-        <div style="background-color: var(--color-bg-alabaster); padding: 2rem; border-radius: var(--radius-sm); border: 0.5px solid var(--color-border-gold);">
-          <span style="font-weight: 700; color: var(--color-text-primary); font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.05em; display: block; margin-bottom: 1rem; border-bottom: 1px solid var(--color-border-light); padding-bottom: 0.5rem;">Ketentuan Transparansi Radikal:</span>
-          <ul style="list-style: none; font-size: 0.9rem; display: flex; flex-direction: column; gap: 0.75rem; color: var(--color-text-secondary);">
-            <li style="display: flex; gap: 0.5rem;"><span style="color: var(--color-gold); font-weight: bold;">✔</span> Pelacakan waktu per menit (Satuan minimal 6 menit)</li>
-            <li style="display: flex; gap: 0.5rem;"><span style="color: var(--color-gold); font-weight: bold;">✔</span> Laporan lembar waktu (Time Sheet) terperinci per aktivitas</li>
-            <li style="display: flex; gap: 0.5rem;"><span style="color: var(--color-gold); font-weight: bold;">✔</span> Batas biaya maksimum (Cap-fee limit) opsional</li>
-            <li style="display: flex; gap: 0.5rem;"><span style="color: var(--color-gold); font-weight: bold;">✔</span> Klasifikasi tarif sesuai jenjang pengalaman Advokat</li>
-            <li style="display: flex; gap: 0.5rem; font-style: italic; font-size: 0.85rem; color: var(--color-text-light);"><span style="color: var(--color-gold); font-weight: bold;">ⓘ</span> Tagihan dikirimkan setiap dua minggu dengan lampiran transparan.</li>
+        <div class="fee-detail-box">
+          <h4>Ketentuan Transparansi</h4>
+          <ul>
+            <li>Pelacakan waktu per menit (satuan minimal 6 menit)</li>
+            <li>Laporan time sheet terperinci per aktivitas</li>
+            <li>Batas biaya maksimum (cap-fee) opsional</li>
+            <li>Tarif sesuai jenjang pengalaman advokat</li>
+            <li class="fee-note">Tagihan dikirim setiap dua minggu dengan lampiran transparan.</li>
           </ul>
         </div>
       </div>
     </div>
 
-    <!-- Content 3: Flat Fee -->
     <div class="tab-content content-flat">
-      <div class="grid-2" style="align-items: center; gap: 3rem;">
+      <div class="grid-2 fee-grid">
         <div>
-          <h4 style="font-size: 1.5rem; color: var(--color-text-primary); margin-bottom: 1rem;">Paket Tarif Tetap (Flat Fee)</h4>
-          <p style="font-size: 0.95rem; line-height: 1.7; margin-bottom: 1.5rem;">
-            Didedikasikan untuk layanan hukum yang terukur dan memiliki ruang lingkup pekerjaan administratif yang pasti. Memberikan kepastian anggaran mutlak tanpa ada tagihan tambahan mengejutkan.
-          </p>
-          <div style="font-size: 1.5rem; font-weight: 800; color: var(--color-gold-dark); margin-bottom: 1.5rem;">
-            Struktur Tarif Layanan Terkunci
-          </div>
-          <a href="/kontak?kategori=HAKI" class="btn btn-gold-outline" style="padding: 0.75rem 1.5rem; font-size: 0.8rem;">Daftar Sekarang</a>
+          <h3>Paket Tarif Tetap</h3>
+          <p>Layanan hukum terukur dengan ruang lingkup pekerjaan yang pasti — kepastian anggaran tanpa tagihan mengejutkan.</p>
+          <p class="fee-price fee-price--sm">Struktur Tarif Layanan Terkunci</p>
+          <a href="/kontak" class="btn btn-gold-outline btn--sm">Daftar Sekarang</a>
         </div>
-        <div style="background-color: var(--color-bg-alabaster); padding: 2rem; border-radius: var(--radius-sm); border: 0.5px solid var(--color-border-gold);">
-          <span style="font-weight: 700; color: var(--color-text-primary); font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.05em; display: block; margin-bottom: 1rem; border-bottom: 1px solid var(--color-border-light); padding-bottom: 0.5rem;">Daftar Tarif Flat Paket Terpopuler:</span>
-          <div style="font-size: 0.9rem; color: var(--color-text-secondary); display: flex; flex-direction: column; gap: 0.75rem;">
-            <div style="display: flex; justify-content: space-between; border-bottom: 0.5px dashed var(--color-border-light); padding-bottom: 0.35rem;">
-              <span>Pendaftaran Merek DJKI (Per Kelas)</span>
-              <span style="font-weight: 600; color: var(--color-text-primary);">Rp 4.000.000</span>
-            </div>
-            <div style="display: flex; justify-content: space-between; border-bottom: 0.5px dashed var(--color-border-light); padding-bottom: 0.35rem;">
-              <span>Pendirian PT Biasa (Lengkap Akta & SK)</span>
-              <span style="font-weight: 600; color: var(--color-text-primary);">Rp 12.000.000</span>
-            </div>
-            <div style="display: flex; justify-content: space-between; border-bottom: 0.5px dashed var(--color-border-light); padding-bottom: 0.35rem;">
-              <span>Penyusunan Perjanjian Pemegang Saham</span>
-              <span style="font-weight: 600; color: var(--color-text-primary);">Rp 15.000.000</span>
-            </div>
-            <div style="display: flex; justify-content: space-between; border-bottom: 0.5px dashed var(--color-border-light); padding-bottom: 0.35rem;">
-              <span>Legal Audit Aset Tanah/Bangunan</span>
-              <span style="font-weight: 600; color: var(--color-text-primary);">Rp 20.000.000</span>
-            </div>
-            <span style="font-style: italic; font-size: 0.85rem; color: var(--color-text-light); display: block; margin-top: 0.25rem;">
-              ⓘ Tarif di atas sudah mencakup biaya administrasi negara (PNBP) resmi.
-            </span>
-          </div>
+        <div class="fee-detail-box">
+          <h4>Paket Terpopuler</h4>
+          <dl class="fee-list">
+            <div><dt>Pendaftaran Merek DJKI (Per Kelas)</dt><dd>Rp 4.000.000</dd></div>
+            <div><dt>Pendirian PT Biasa (Lengkap Akta & SK)</dt><dd>Rp 12.000.000</dd></div>
+            <div><dt>Perjanjian Pemegang Saham</dt><dd>Rp 15.000.000</dd></div>
+            <div><dt>Legal Audit Aset Tanah/Bangunan</dt><dd>Rp 20.000.000</dd></div>
+          </dl>
+          <p class="fee-note">Tarif sudah mencakup biaya administrasi negara (PNBP) resmi.</p>
         </div>
       </div>
     </div>
-
   </div>
-
 </div>
 
 <style>
-  /* Styling Navigasi Tab */
+  .fee-calculator {
+    padding: var(--space-12);
+    border-radius: var(--radius-sm);
+    border-color: var(--color-border-gold);
+  }
+
+  .fee-calculator :global(.section-header) {
+    margin-bottom: var(--space-10);
+  }
+
+  .tabs-nav {
+    display: flex;
+    justify-content: center;
+    gap: var(--space-2);
+    margin-bottom: var(--space-10);
+    border-bottom: 1px solid var(--color-border-light);
+    padding-bottom: var(--space-4);
+    flex-wrap: wrap;
+  }
+
   .tab-label {
-    padding: 0.75rem 1.5rem;
+    padding: var(--space-3) var(--space-4);
     cursor: pointer;
-    font-size: 0.95rem;
+    font-size: 0.875rem;
     font-weight: 500;
     color: var(--color-text-secondary);
     border-bottom: 2px solid transparent;
     transition: var(--transition-fast);
+    white-space: nowrap;
   }
-  
+
   .tab-label:hover {
     color: var(--color-gold-dark);
   }
-  
-  /* Tampilkan tab aktif berdasarkan selector checked */
-  .tab-radio-retainer:checked ~ .tabs-nav-wrapper .label-retainer,
-  .tab-radio-hourly:checked ~ .tabs-nav-wrapper .label-hourly,
-  .tab-radio-flat:checked ~ .tabs-nav-wrapper .label-flat {
+
+  .tab-radio-retainer:checked ~ .tabs-nav .label-retainer,
+  .tab-radio-hourly:checked ~ .tabs-nav .label-hourly,
+  .tab-radio-flat:checked ~ .tabs-nav .label-flat {
     color: var(--color-gold-dark);
-    font-weight: 700;
+    font-weight: 600;
     border-bottom-color: var(--color-gold);
   }
 
-  /* Logika Sembunyikan & Tampilkan Konten Tab */
   .tab-content {
     display: none;
-    animation: fadeInTab 0.4s ease;
   }
-  
-  .tab-radio-retainer:checked ~ .tabs-content-container .content-retainer {
-    display: block !important;
+
+  .tab-radio-retainer:checked ~ .tabs-content .content-retainer,
+  .tab-radio-hourly:checked ~ .tabs-content .content-hourly,
+  .tab-radio-flat:checked ~ .tabs-content .content-flat {
+    display: block;
   }
-  
-  .tab-radio-hourly:checked ~ .tabs-content-container .content-hourly {
-    display: block !important;
+
+  .fee-grid {
+    align-items: start;
+    gap: var(--space-10);
   }
-  
-  .tab-radio-flat:checked ~ .tabs-content-container .content-flat {
-    display: block !important;
+
+  .fee-grid h3 {
+    font-size: 1.35rem;
+    margin-bottom: var(--space-4);
   }
-  
-  @keyframes fadeInTab {
-    from {
-      opacity: 0;
-      transform: translateY(5px);
+
+  .fee-price {
+    font-family: var(--font-display);
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: var(--color-gold-dark);
+    margin: var(--space-6) 0;
+  }
+
+  .fee-price--sm {
+    font-size: 1.35rem;
+  }
+
+  .fee-price span {
+    font-family: var(--font-primary);
+    font-size: 0.875rem;
+    font-weight: 400;
+    color: var(--color-text-secondary);
+  }
+
+  .fee-detail-box {
+    background: var(--surface-muted);
+    padding: var(--space-8);
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--color-border-light);
+  }
+
+  .fee-detail-box h4 {
+    font-family: var(--font-primary);
+    font-size: 0.8125rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-bottom: var(--space-4);
+    padding-bottom: var(--space-2);
+    border-bottom: 1px solid var(--color-border-light);
+  }
+
+  .fee-detail-box ul {
+    list-style: none;
+    font-size: 0.9rem;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+    color: var(--color-text-secondary);
+  }
+
+  .fee-detail-box li::before {
+    content: '—';
+    color: var(--color-gold);
+    margin-right: var(--space-2);
+  }
+
+  .fee-note {
+    font-style: italic;
+    font-size: 0.8125rem !important;
+    color: var(--color-text-muted) !important;
+  }
+
+  .fee-note::before {
+    content: none !important;
+  }
+
+  .fee-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+    font-size: 0.9rem;
+  }
+
+  .fee-list div {
+    display: flex;
+    justify-content: space-between;
+    gap: var(--space-4);
+    border-bottom: 1px dashed var(--color-border-light);
+    padding-bottom: var(--space-2);
+  }
+
+  .fee-list dd {
+    font-weight: 600;
+    color: var(--color-text-primary);
+    white-space: nowrap;
+  }
+
+  @media (max-width: 640px) {
+    .fee-calculator {
+      padding: var(--space-8) var(--space-6);
     }
-    to {
-      opacity: 1;
-      transform: translateY(0);
+
+    .tabs-nav {
+      flex-direction: column;
+      align-items: stretch;
+    }
+
+    .tab-label {
+      text-align: center;
     }
   }
 </style>

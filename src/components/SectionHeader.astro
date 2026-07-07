@@ -1,0 +1,27 @@
+---
+interface Props {
+  badge?: string;
+  title: string;
+  description?: string;
+  centered?: boolean;
+  headingLevel?: 'h1' | 'h2' | 'h3';
+  class?: string;
+}
+
+const {
+  badge,
+  title,
+  description,
+  centered = false,
+  headingLevel = 'h2',
+  class: className = '',
+} = Astro.props;
+
+const Tag = headingLevel;
+---
+
+<div class={`section-header ${centered ? 'section-header--center' : ''} ${className}`}>
+  {badge && <span class="badge-gold">{badge}</span>}
+  <Tag class={`section-heading ${centered ? 'section-heading--center' : ''}`}>{title}</Tag>
+  {description && <p class="section-header__desc">{description}</p>}
+</div>

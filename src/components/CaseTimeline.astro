@@ -2,116 +2,189 @@
 const phases = [
   {
     step: '01',
-    title: 'Fase 1: Tinjauan Anatomi Risiko',
+    title: 'Tinjauan Anatomi Risiko',
     subtitle: 'Analisis Berkas & Diagnostik Awal',
-    description: 'Kami melakukan investigasi mendalam terhadap anatomi berkas perkara, memetakan celah hukum, dan mendiagnosis potensi risiko sebelum menyusun strategi pertahanan.'
+    description: 'Investigasi mendalam terhadap berkas perkara, pemetaan celah hukum, dan diagnosis potensi risiko sebelum strategi pertahanan disusun.',
   },
   {
     step: '02',
-    title: 'Fase 2: Strategi Preventif & Mediasi',
+    title: 'Strategi Preventif & Mediasi',
     subtitle: 'Jalur Non-Litigasi & Negosiasi',
-    description: 'Mengutamakan penyelesaian sengketa secara efisien melalui perundingan tertutup dan mediasi strategis untuk meminimalisasi publisitas buruk dan biaya.'
+    description: 'Penyelesaian sengketa secara efisien melalui perundingan tertutup dan mediasi strategis untuk meminimalisasi publisitas dan biaya.',
   },
   {
     step: '03',
-    title: 'Fase 3: Agresi Hukum & Advokasi',
-    subtitle: 'Litigasi Sidang & Eksekusi Taktis',
-    description: 'Jika jalur damai tidak terpenuhi, kami meluncurkan agresi hukum penuh di persidangan dengan bukti terenkripsi, saksi ahli, dan advokasi yang gigih.'
+    title: 'Advokasi & Litigasi',
+    subtitle: 'Sidang & Eksekusi Taktis',
+    description: 'Advokasi penuh di persidangan dengan bukti terstruktur, saksi ahli, dan pembelaan yang gigih bila jalur damai tidak terpenuhi.',
   },
   {
     step: '04',
-    title: 'Fase 4: Eksekusi & Proteksi Purnakarsa',
-    subtitle: 'Pengamanan Aset & Kepatuhan Jangka Panjang',
-    description: 'Memastikan putusan hakim dieksekusi secara nyata di lapangan dan merancang regulasi kepatuhan internal untuk mencegah ancaman serupa terjadi kembali.'
-  }
+    title: 'Eksekusi & Proteksi Jangka Panjang',
+    subtitle: 'Pengamanan Aset & Kepatuhan',
+    description: 'Eksekusi putusan di lapangan dan perancangan regulasi kepatuhan internal untuk mencegah ancaman serupa di masa depan.',
+  },
 ];
 ---
 
-<div class="timeline-container" style="position: relative; padding: 2rem 0; width: 100%;">
-  
-  <!-- Central Vertical Line (Desktop Only) -->
-  <div class="timeline-line" style="position: absolute; top: 0; bottom: 0; left: 50%; width: 1px; background-color: var(--color-border-gold); transform: translateX(-50%); z-index: 1;"></div>
-  
-  <div style="display: flex; flex-direction: column; gap: 4rem; position: relative; z-index: 2;">
+<div class="timeline-container">
+  <div class="timeline-line" aria-hidden="true"></div>
+
+  <div class="timeline-list">
     {phases.map((phase, index) => {
       const isEven = index % 2 === 0;
       return (
-        <div class="timeline-item" style={`display: flex; width: 100%; align-items: center; justify-content: space-between; flex-direction: ${isEven ? 'row' : 'row-reverse'};`}>
-          
-          <!-- Content Side -->
-          <div class="timeline-content-wrapper" style="width: 45%; transition: var(--transition-normal);">
-            <div class="glass-panel timeline-card" style="padding: 2.5rem; border-radius: var(--radius-sm); border-left: 3px solid var(--color-gold); background: rgba(255, 255, 255, 0.75);">
-              <span style="font-size: 0.75rem; font-weight: 700; color: var(--color-gold-dark); text-transform: uppercase; letter-spacing: 0.1em; display: block; margin-bottom: 0.5rem;">
-                {phase.subtitle}
-              </span>
-              <h3 style="font-size: 1.35rem; color: var(--color-text-primary); margin-bottom: 1rem; font-weight: 700;">
-                {phase.title}
-              </h3>
-              <p style="font-size: 0.95rem; line-height: 1.6; color: var(--color-text-secondary); margin: 0;">
-                {phase.description}
-              </p>
-            </div>
+        <div class={`timeline-item ${isEven ? 'timeline-item--left' : 'timeline-item--right'}`}>
+          <div class="timeline-content-wrapper">
+            <article class="timeline-card surface-card">
+              <span class="timeline-card__subtitle">{phase.subtitle}</span>
+              <h3>{phase.title}</h3>
+              <p>{phase.description}</p>
+            </article>
           </div>
-          
-          <!-- Circle Node -->
-          <div class="timeline-node" style="width: 50px; height: 50px; border-radius: 50%; background-color: var(--color-bg-white); border: 2px solid var(--color-gold); display: flex; align-items: center; justify-content: center; font-weight: 800; color: var(--color-gold-dark); font-size: 1.1rem; z-index: 5; box-shadow: var(--shadow-sm); transition: var(--transition-normal); transform: scale(1);">
-            {phase.step}
-          </div>
-          
-          <!-- Empty Spacer Side -->
-          <div class="timeline-spacer" style="width: 45%;"></div>
-          
+
+          <div class="timeline-node" aria-hidden="true">{phase.step}</div>
+          <div class="timeline-spacer" aria-hidden="true"></div>
         </div>
       );
     })}
   </div>
-
 </div>
 
 <style>
-  /* Responsive styles for Timeline */
+  .timeline-container {
+    position: relative;
+    padding: var(--space-8) 0;
+    width: 100%;
+  }
+
+  .timeline-line {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    width: 1px;
+    background-color: var(--color-border-gold);
+    transform: translateX(-50%);
+    z-index: 1;
+  }
+
+  .timeline-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-16);
+    position: relative;
+    z-index: 2;
+  }
+
+  .timeline-item {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .timeline-item--left {
+    flex-direction: row;
+  }
+
+  .timeline-item--right {
+    flex-direction: row-reverse;
+  }
+
+  .timeline-content-wrapper {
+    width: 45%;
+  }
+
+  .timeline-spacer {
+    width: 45%;
+  }
+
+  .timeline-node {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background-color: var(--color-bg-white);
+    border: 2px solid var(--color-gold);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-display);
+    font-weight: 700;
+    color: var(--color-gold-dark);
+    font-size: 1rem;
+    z-index: 5;
+    flex-shrink: 0;
+  }
+
+  .timeline-card {
+    padding: var(--space-10);
+    border-radius: var(--radius-sm);
+    border-left: 2px solid var(--color-gold);
+  }
+
+  .timeline-card__subtitle {
+    font-size: 0.6875rem;
+    font-weight: 600;
+    font-family: var(--font-primary);
+    color: var(--color-gold-dark);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    display: block;
+    margin-bottom: var(--space-2);
+  }
+
+  .timeline-card h3 {
+    font-size: 1.25rem;
+    margin-bottom: var(--space-4);
+  }
+
+  .timeline-card p {
+    font-size: 0.9375rem;
+    line-height: 1.65;
+  }
+
+  .timeline-item:hover .timeline-node {
+    background-color: var(--color-gold-dark);
+    color: var(--color-bg-white);
+  }
+
+  .timeline-item:hover .timeline-card {
+    border-left-color: var(--color-text-primary);
+    box-shadow: var(--shadow-md);
+  }
+
   @media (max-width: 991px) {
     .timeline-line {
-      left: 20px !important;
-      transform: none !important;
+      left: 20px;
+      transform: none;
     }
-    
-    .timeline-item {
-      flex-direction: column !important;
-      align-items: flex-start !important;
-      gap: 1rem;
+
+    .timeline-item,
+    .timeline-item--left,
+    .timeline-item--right {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: var(--space-4);
       position: relative;
-      padding-left: 60px;
+      padding-left: 56px;
     }
-    
+
     .timeline-content-wrapper {
-      width: 100% !important;
+      width: 100%;
     }
-    
+
     .timeline-node {
       position: absolute;
       left: 0;
       top: 0;
-      width: 40px !important;
-      height: 40px !important;
-      font-size: 0.95rem !important;
+      width: 40px;
+      height: 40px;
+      font-size: 0.875rem;
     }
-    
+
     .timeline-spacer {
-      display: none !important;
+      display: none;
     }
-  }
-  
-  /* Hover effects */
-  .timeline-item:hover .timeline-node {
-    transform: scale(1.15);
-    background-color: var(--color-gold);
-    color: var(--color-bg-white);
-    box-shadow: var(--shadow-gold-glow);
-  }
-  
-  .timeline-item:hover .timeline-card {
-    border-left-color: var(--color-text-primary);
-    box-shadow: var(--shadow-md);
   }
 </style>

@@ -1,5 +1,6 @@
 ---
 import MainLayout from '../layouts/MainLayout.astro';
+import SectionHeader from '../components/SectionHeader.astro';
 import CardPractice from '../components/CardPractice.astro';
 import FeeCalculator from '../components/FeeCalculator.astro';
 
@@ -7,65 +8,55 @@ const practices = [
   {
     title: 'Hukum Korporasi & M&A',
     description: 'Pendirian struktur bisnis patuh hukum, perancangan kontrak kerja sama internasional, penanganan restrukturisasi perusahaan, modal ventura, kepatuhan regulasi OJK/BKPM, hingga proses likuidasi bisnis terukur.',
-    iconName: 'corporate' as const
+    iconName: 'corporate' as const,
   },
   {
     title: 'Hak Kekayaan Intelektual & Teknologi',
-    description: 'Pendaftaran dan litigasi merek dagang mewah, hak cipta seni digital, paten invensi teknologi, audit privasi sengketa data pengguna, serta perlindungan trade secret korporasi di era siber.',
-    iconName: 'ip' as const
+    description: 'Pendaftaran dan litigasi merek dagang, hak cipta seni digital, paten invensi teknologi, audit privasi sengketa data pengguna, serta perlindungan trade secret korporasi.',
+    iconName: 'ip' as const,
   },
   {
     title: 'Litigasi Komersial & Pidana Bisnis',
-    description: 'Pertahanan hukum agresif untuk direksi atas dugaan tindak pidana kerah putih (korupsi/pencucian uang), sengketa kepemilikan saham, kepailitan komersial, dan arbitrase bisnis internasional.',
-    iconName: 'litigation' as const
+    description: 'Pertahanan hukum untuk direksi atas dugaan tindak pidana kerah putih, sengketa kepemilikan saham, kepailitan komersial, dan arbitrase bisnis internasional.',
+    iconName: 'litigation' as const,
   },
   {
     title: 'Perlindungan Aset & Hukum Keluarga',
-    description: 'Manajemen suksesi bisnis keluarga antargenerasi, pembentukan struktur Trust Fund perlindungan aset dari klaim kreditur sengketa, dan perencanaan warisan korporat berskala premium.',
-    iconName: 'asset' as const
-  }
+    description: 'Manajemen suksesi bisnis keluarga antargenerasi, pembentukan struktur trust fund, dan perencanaan warisan korporat berskala premium.',
+    iconName: 'asset' as const,
+  },
 ];
 ---
 
-<MainLayout 
-  title="Area Hukum" 
-  description="Layanan hukum butik premium Aurelius & Associates. Meliputi Hukum Korporasi, HAKI & Teknologi, Litigasi Komersial, dan Perlindungan Aset Keluarga Premium."
+<MainLayout
+  title="Area Hukum"
+  description="Layanan hukum premium Aurelius & Associates: Hukum Korporasi, HAKI & Teknologi, Litigasi Komersial, dan Perlindungan Aset."
 >
 
-  <!-- PRACTICE GRID SECTION -->
-  <section class="section-padding" style="background-color: var(--color-bg-white);">
+  <section class="section-padding">
     <div class="container">
-      
-      <!-- Section Header -->
-      <div style="text-align: center; margin-bottom: 4rem;">
-        <span class="badge-gold">Keahlian Hukum Boutique</span>
-        <h2 class="text-center" style="margin-top: 0.5rem; margin-bottom: 1rem; font-weight: 800;">Area Praktik Utama Kami</h2>
-        <p style="font-size: 1rem; color: var(--color-text-secondary); max-width: 600px; margin: 0 auto;">
-          Fokus pada 4 pilar hukum bernilai tinggi untuk memastikan perlindungan kekayaan, bisnis, dan aset digital Anda secara mutlak.
-        </p>
-      </div>
+      <SectionHeader
+        badge="Keahlian Hukum"
+        title="Area Praktik Utama Kami"
+        description="Fokus pada empat pilar hukum bernilai tinggi untuk memastikan perlindungan kekayaan, bisnis, dan aset digital Anda."
+        centered
+      />
 
-      <!-- Practice Cards Grid -->
-      <div class="grid-2" style="gap: 2.5rem;">
+      <div class="grid-2">
         {practices.map(practice => (
-          <CardPractice 
+          <CardPractice
             title={practice.title}
             description={practice.description}
             iconName={practice.iconName}
           />
         ))}
       </div>
-
     </div>
   </section>
 
-  <!-- FEE CALCULATOR TRANSISTION -->
-  <section class="section-padding" style="background-color: var(--color-bg-alabaster); border-top: 1.5px solid var(--color-border-gold);">
-    <div class="container" style="max-width: 1000px;">
-      
-      <!-- Fee Calculator component -->
+  <section class="section-padding section-muted section-border-top">
+    <div class="container container--medium">
       <FeeCalculator />
-
     </div>
   </section>
 
