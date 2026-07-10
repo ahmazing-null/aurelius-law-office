@@ -318,10 +318,16 @@ Ditampilkan di halaman Tentang Kami:
 
 | No | Nama | Peran | Kontribusi |
 |----|------|-------|-----------|
-| 1 | **[Nama Member 1]** | Lead Developer / Founder | Frontend development, UI/UX, deployment |
-| 2 | **[Nama Member 2]** | Content & Strategy | Copywriting, wireframing, branding |
-| 3 | **[Nama Member 3]** | Designer | Heritage palette, component design, accessibility |
-| 4 | **[Nama Member 4]** | QA & Optimization | Testing, performance, mobile responsiveness |
+| 1 | **Luqi Ahmad Khilfa** | 1253010091 | **Project Lead & Full-stack Developer** — End-to-end development, UI/UX direction, content strategy, QA, CI/CD, and documentation |
+| 2 | **Muhammad Zulfi Askhiya** | 1253010079 | **Subject Matter Expert** — Provided personal credentials for team profile  |
+| 3 | **seera Aozora** | 1253010089 | **Subject Matter Expert** — Provided personal credentials for team profile  |
+| 4 | **Muhamad Rizky Nugraha** | 1253010100 | **Subject Matter Expert** — Provided personal credentials for team profile  |
+| 5 | **Nidia Gitania** | 1253010069 | **Subject Matter Expert** — Provided personal credentials for team profile  |
+| 6 | **⁠Deden Julian** | 1253010101 | **Subject Matter Expert** — Provided personal credentials for team profile  |
+| 7 | **⁠Rafi Aditya Syafiq** | 1253010103 | **Subject Matter Expert** — Provided personal credentials for team profile |
+| 8 | **Safta Aulia P** | 1253010087 | **Subject Matter Expert** — Provided personal credentials for team profile |
+
+
 
 > **Catatan**: Ganti placeholder dengan nama anggota kelompok sebenarnya.
 
