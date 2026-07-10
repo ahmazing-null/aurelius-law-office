@@ -1,5 +1,6 @@
 ---
 import MainLayout from '../layouts/MainLayout.astro';
+import EmergencyHub from '../components/EmergencyHub.astro';
 
 const successUrl = Astro.url.origin + '/sukses';
 ---
@@ -12,18 +13,7 @@ const successUrl = Astro.url.origin + '/sukses';
   <section class="section-padding">
     <div class="container">
 
-      <aside class="emergency-banner no-print" role="note" aria-label="Layanan darurat hukum">
-        <div class="emergency-banner__content">
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126zM12 15.75h.007v.008H12v-.008z" />
-          </svg>
-          <div>
-            <h2 class="emergency-banner__title">Protokol Darurat Hukum 24/7</h2>
-            <p>Jika Anda sedang menghadapi pemeriksaan mendadak atau situasi kritis, <strong>jangan mengisi formulir</strong>. Hubungi hotline kami langsung.</p>
-          </div>
-        </div>
-        <a href="https://wa.me/6285171605225?text=Halo%20Aurelius%20Law%20Office,%20saya%20sedang%20menghadapi%20krisis%20hukum%20mendadak." class="btn btn-emergency btn--sm">Hubungi Darurat</a>
-      </aside>
+      <EmergencyHub />
 
       <div class="grid-2 contact-grid">
         <div>
@@ -37,22 +27,22 @@ const successUrl = Astro.url.origin + '/sukses';
             <div class="form-grid">
               <div class="form-field">
                 <label class="form-label" for="form-name">Nama Lengkap *</label>
-                <input class="form-input" type="text" id="form-name" name="name" required placeholder="Contoh: Adrian Aurelius" />
+                <input class="form-input glass" type="text" id="form-name" name="name" required placeholder="Contoh: Adrian Aurelius" />
               </div>
               <div class="form-field">
                 <label class="form-label" for="form-phone">Nomor WhatsApp *</label>
-                <input class="form-input" type="tel" id="form-phone" name="phone" required placeholder="Contoh: 085171605225" />
+                <input class="form-input glass" type="tel" id="form-phone" name="phone" required placeholder="Contoh: 085171605225" />
               </div>
             </div>
 
             <div class="form-grid">
               <div class="form-field">
                 <label class="form-label" for="form-email">Alamat Email *</label>
-                <input class="form-input" type="email" id="form-email" name="email" required placeholder="nama@perusahaan.com" />
+                <input class="form-input glass" type="email" id="form-email" name="email" required placeholder="nama@perusahaan.com" />
               </div>
               <div class="form-field">
                 <label class="form-label" for="form-category">Kategori Hukum *</label>
-                <select class="form-select" id="form-category" name="category" required>
+                <select class="form-select glass" id="form-category" name="category" required>
                   <option value="Korporasi">Hukum Korporasi & M&A</option>
                   <option value="HAKI">Hak Kekayaan Intelektual & Teknologi</option>
                   <option value="Pidana Bisnis">Litigasi Komersial / Pidana Bisnis</option>
@@ -63,12 +53,12 @@ const successUrl = Astro.url.origin + '/sukses';
 
             <div class="form-field">
               <label class="form-label" for="form-message">Kronologi Singkat / Keterangan Kasus *</label>
-              <textarea class="form-textarea" id="form-message" name="message" required rows="5" placeholder="Tuliskan latar belakang masalah hukum Anda secara singkat..."></textarea>
+              <textarea class="form-textarea glass" id="form-message" name="message" required rows="5" placeholder="Tuliskan latar belakang masalah hukum Anda secara singkat..."></textarea>
             </div>
 
             <div class="form-field">
               <label class="form-label" for="form-attachment">Lampiran Dokumen (Opsional)</label>
-              <div class="file-dropzone">
+              <div class="file-dropzone glass-gold">
                 <input type="file" id="form-attachment" name="attachment" />
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
                   <path stroke-linecap="round" stroke-linejoin="round" d="M16.5 10.5V6.75a4.5 4.5 0 1 0-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 0 0 2.25-2.25v-6.75a2.25 2.25 0 0 0-2.25-2.25H6.75a2.25 2.25 0 0 0-2.25 2.25v6.75a2.25 2.25 0 0 0 2.25 2.25Z" />
@@ -114,74 +104,19 @@ const successUrl = Astro.url.origin + '/sukses';
 </MainLayout>
 
 <style>
-  .emergency-banner {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: var(--space-6);
-    padding: var(--space-6) var(--space-8);
-    margin-bottom: var(--space-16);
-    background: rgba(185, 28, 28, 0.04);
-    border: 1px solid rgba(185, 28, 28, 0.2);
-    border-left: 3px solid var(--color-accent-red);
-    border-radius: var(--radius-sm);
-    flex-wrap: wrap;
-  }
-
-  .emergency-banner__content {
-    display: flex;
-    align-items: flex-start;
-    gap: var(--space-4);
-    flex: 1;
-    min-width: 200px;
-  }
-
-  .emergency-banner__content svg {
-    width: 28px;
-    height: 28px;
-    color: var(--color-accent-red);
-    flex-shrink: 0;
-    margin-top: 2px;
-  }
-
-  .emergency-banner__title {
-    font-family: var(--font-primary);
-    font-size: 0.875rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.06em;
-    color: var(--color-accent-red);
-    margin-bottom: var(--space-2);
-  }
-
-  .emergency-banner p {
-    font-size: 0.9rem;
-    margin: 0;
-  }
-
-  .contact-grid {
-    gap: var(--space-16);
-    align-items: start;
-  }
-
-  .contact-grid h1,
-  .contact-grid h2 {
-    margin-bottom: var(--space-8);
-  }
-
   .file-dropzone {
     position: relative;
     border: 1px dashed var(--color-border-gold);
-    background: var(--surface-muted);
     border-radius: var(--radius-sm);
     padding: var(--space-8);
     text-align: center;
-    transition: var(--transition-fast);
+    transition: var(--transition-smooth);
+    cursor: pointer;
   }
 
   .file-dropzone:hover {
     border-color: var(--color-gold-dark);
-    background: var(--color-bg-white);
+    background: var(--glass-gold-bg);
   }
 
   .file-dropzone input[type="file"] {
@@ -227,6 +162,7 @@ const successUrl = Astro.url.origin + '/sukses';
     border-radius: var(--radius-sm);
     background: var(--surface-muted);
     overflow: hidden;
+    transition: var(--transition-smooth);
   }
 
   .accordion-item summary {
@@ -240,6 +176,11 @@ const successUrl = Astro.url.origin + '/sukses';
     display: flex;
     justify-content: space-between;
     align-items: center;
+    transition: var(--transition-smooth);
+  }
+
+  .accordion-item summary:hover {
+    background: rgba(197, 168, 128, 0.05);
   }
 
   .accordion-item summary::-webkit-details-marker {
@@ -264,16 +205,27 @@ const successUrl = Astro.url.origin + '/sukses';
     line-height: 1.65;
     background: var(--color-bg-white);
     margin: 0;
+    transition: var(--transition-smooth);
+  }
+
+  html.dark-mode .accordion-item p {
+    background: var(--color-bg-card);
+  }
+
+  .contact-grid {
+    gap: var(--space-16);
+    align-items: start;
+    margin-top: var(--space-16);
+  }
+
+  .contact-grid h1,
+  .contact-grid h2 {
+    margin-bottom: var(--space-8);
   }
 
   @media (max-width: 768px) {
-    .emergency-banner {
-      flex-direction: column;
-      align-items: stretch;
-    }
-
-    .emergency-banner .btn {
-      width: 100%;
+    .contact-grid {
+      gap: var(--space-8);
     }
   }
 </style>

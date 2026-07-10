@@ -1,0 +1,339 @@
+---
+import ScaleIcon from './ScaleIcon.astro';
+
+interface Props {
+  navItems: Array<{ href: string; label: string }>;
+  pathname: string;
+}
+
+const { navItems, pathname } = Astro.props;
+
+const cleanPath = pathname.endsWith('/') && pathname.length > 1 ? pathname.slice(0, -1) : pathname;
+
+const checkActive = (itemHref: string) => {
+  if (itemHref === '/') {
+    return cleanPath === '' || cleanPath === '/' || cleanPath === '/index.html';
+  }
+  return cleanPath.startsWith(itemHref);
+};
+---
+
+<header class="site-header no-print">
+  <div class="container site-header__inner">
+    <a href="/" class="site-logo" aria-label="Aurelius & Associates — Beranda">
+      <div class="site-logo__mark-container">
+        <ScaleIcon size="sm" variant="minimal" className="site-logo__scale" />
+      </div>
+      <span class="site-logo__accent">Aurelius</span>
+      <span class="site-logo__suffix">& Associates</span>
+    </a>
+
+    <!-- NAVIGASI DESKTOP -->
+    <nav class="desktop-nav" aria-label="Navigasi utama">
+      {navItems.map(item => (
+        <a
+          href={item.href}
+          class={`nav-link ${checkActive(item.href) ? 'active' : ''}`}
+          aria-current={checkActive(item.href) ? 'page' : undefined}
+        >
+          {item.label}
+        </a>
+      ))}
+      <a href="/kontak" class="btn btn-emergency btn--sm">Darurat 24/7</a>
+    </nav>
+
+    <!-- DARK MODE TOGGLE -->
+    <div class="header-actions">
+      <input 
+        type="checkbox" 
+        id="dark-mode-toggle" 
+        class="dark-mode-checkbox" 
+        aria-label="Alihkan mode gelap"
+      />
+      <label for="dark-mode-toggle" class="dark-mode-toggle" title="Alihkan tema">
+        <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+          <circle cx="12" cy="12" r="5"/>
+          <line x1="12" y1="1" x2="12" y2="3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          <line x1="12" y1="21" x2="12" y2="23" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          <line x1="1" y1="12" x2="3" y2="12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          <line x1="21" y1="12" x2="23" y2="12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+        <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+        </svg>
+      </label>
+    </div>
+
+    <!-- TOGGLE BURGER MOBILE -->
+    <input type="checkbox" id="menu-toggle" class="menu-toggle-checkbox" aria-hidden="true" />
+    <label for="menu-toggle" class="menu-toggle-label" id="menu-toggle-btn" aria-label="Buka menu navigasi">
+      <span></span>
+      <span></span>
+      <span></span>
+    </label>
+    <div class="menu-overlay" aria-hidden="true"></div>
+
+    <!-- NAVIGASI MOBILE -->
+    <nav class="mobile-nav-menu" id="mobile-nav" aria-label="Navigasi mobile">
+      {navItems.map(item => (
+        <a
+          href={item.href}
+          class={`nav-link ${checkActive(item.href) ? 'active' : ''}`}
+          aria-current={checkActive(item.href) ? 'page' : undefined}
+        >
+          {item.label}
+        </a>
+      ))}
+      <div class="mobile-nav__actions">
+        <a href="tel:+6285171605225" class="btn btn-emergency btn--block">Darurat 24/7</a>
+        <a href="https://wa.me/6285171605225?text=Halo%20Aurelius%20Law%20Office,%20saya%20ingin%20melakukan%20konsultasi%20hukum." class="btn btn-gold-outline btn--block">WhatsApp</a>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<style>
+  .header-actions {
+    display: flex;
+    align-items: center;
+    gap: var(--space-4);
+  }
+
+  .dark-mode-checkbox {
+    display: none;
+  }
+
+  .dark-mode-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    background: transparent;
+    border: 1px solid var(--color-border-light);
+    border-radius: var(--radius-md);
+    transition: var(--transition-smooth);
+    color: var(--color-text-primary);
+    position: relative;
+  }
+
+  .dark-mode-toggle:hover {
+    background: var(--surface-muted);
+    border-color: var(--color-border-gold);
+  }
+
+  .dark-mode-toggle svg {
+    width: 18px;
+    height: 18px;
+    position: absolute;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+  }
+
+  .sun-icon {
+    opacity: 1;
+    transform: rotate(0deg);
+  }
+
+  .moon-icon {
+    opacity: 0;
+    transform: rotate(-180deg);
+  }
+
+  .dark-mode-checkbox:checked ~ .dark-mode-toggle .sun-icon {
+    opacity: 0;
+    transform: rotate(180deg);
+  }
+
+  .dark-mode-checkbox:checked ~ .dark-mode-toggle .moon-icon {
+    opacity: 1;
+    transform: rotate(0deg);
+  }
+
+  /* ========== FIX: SEMBUNYIKAN MOBILE ELEMENTS DI DESKTOP ========== */
+  @media (min-width: 992px) {
+    /* Sembunyikan burger menu checkbox & label */
+    .menu-toggle-checkbox,
+    .menu-toggle-label {
+      display: none !important;
+    }
+
+    /* Sembunyikan overlay */
+    .menu-overlay {
+      display: none !important;
+    }
+
+    /* Sembunyikan mobile nav */
+    .mobile-nav-menu {
+      display: none !important;
+    }
+  }
+
+  /* ========== FIX: SEMBUNYIKAN DESKTOP NAV & DARK MODE DI MOBILE ========== */
+  @media (max-width: 991px) {
+    .desktop-nav {
+      display: none !important;
+    }
+
+    .header-actions {
+      display: none !important;
+    }
+
+    /* Mobile nav styling */
+    .menu-toggle-checkbox {
+      display: none;
+    }
+
+    .menu-toggle-label {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      width: 28px;
+      height: 20px;
+      cursor: pointer;
+      z-index: 1001;
+      position: relative;
+    }
+
+    .menu-toggle-label span {
+      display: block;
+      height: 2.5px;
+      width: 100%;
+      background: var(--color-text-primary);
+      border-radius: 2px;
+      transition: var(--transition-smooth);
+      transform-origin: center;
+    }
+
+    .menu-toggle-checkbox:checked ~ .menu-toggle-label span:nth-child(1) {
+      transform: rotate(45deg) translate(5px, 5px);
+    }
+
+    .menu-toggle-checkbox:checked ~ .menu-toggle-label span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .menu-toggle-checkbox:checked ~ .menu-toggle-label span:nth-child(3) {
+      transform: rotate(-45deg) translate(5px, -5px);
+    }
+
+    .menu-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 999;
+      opacity: 0;
+      visibility: hidden;
+      transition: var(--transition-smooth);
+    }
+
+    .menu-toggle-checkbox:checked ~ .menu-overlay {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .mobile-nav-menu {
+      position: fixed;
+      top: 0;
+      right: -100%;
+      width: 85%;
+      max-width: 340px;
+      height: 100%;
+      background: var(--surface-background);
+      padding: var(--space-8) var(--space-6);
+      z-index: 1000;
+      transition: right 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-4);
+      overflow-y: auto;
+      box-shadow: var(--shadow-xl);
+    }
+
+    .menu-toggle-checkbox:checked ~ .mobile-nav-menu {
+      right: 0;
+    }
+
+    .mobile-nav-menu .nav-link {
+      font-size: 1.125rem;
+      padding: var(--space-3) 0;
+      border-bottom: 1px solid var(--color-border-light);
+      color: var(--color-text-primary);
+      text-decoration: none;
+    }
+
+    .mobile-nav-menu .nav-link.active {
+      color: var(--color-gold);
+      font-weight: 600;
+    }
+
+    .mobile-nav__actions {
+      margin-top: auto;
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-3);
+      padding-top: var(--space-4);
+      border-top: 1px solid var(--color-border-light);
+    }
+
+    .btn--block {
+      display: block;
+      width: 100%;
+      text-align: center;
+    }
+  }
+
+  /* Dark mode support */
+  .dark-mode .menu-toggle-label span {
+    background: var(--color-text-primary);
+  }
+
+  .dark-mode .mobile-nav-menu {
+    background: var(--surface-background-dark, #1a1a1a);
+  }
+</style>
+
+<script>
+  // Flash prevention & dark mode initialization
+  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+  const storedTheme = localStorage.getItem('theme') || (prefersDark ? 'dark' : 'light');
+  
+  if (storedTheme === 'dark') {
+    document.documentElement.classList.add('dark-mode');
+  }
+
+  const checkbox = document.getElementById('dark-mode-toggle') as HTMLInputElement;
+  if (checkbox && storedTheme === 'dark') {
+    checkbox.checked = true;
+  }
+
+  checkbox?.addEventListener('change', () => {
+    const isDark = checkbox.checked;
+    if (isDark) {
+      document.documentElement.classList.add('dark-mode');
+      localStorage.setItem('theme', 'dark');
+    } else {
+      document.documentElement.classList.remove('dark-mode');
+      localStorage.setItem('theme', 'light');
+    }
+  });
+
+  // Close mobile menu when link is clicked
+  const mobileLinks = document.querySelectorAll('.mobile-nav-menu .nav-link');
+  const menuToggle = document.getElementById('menu-toggle') as HTMLInputElement;
+  
+  mobileLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      if (menuToggle) {
+        menuToggle.checked = false;
+      }
+    });
+  });
+</script>

@@ -1,5 +1,7 @@
 ---
 import '../styles/global.css';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
 
 interface Props {
   title: string;
@@ -9,7 +11,6 @@ interface Props {
 const { title, description = "Aurelius & Associates Law Office — firma hukum boutique di Hogwarts dengan integritas tinggi dan transparansi biaya." } = Astro.props;
 
 const pathname = Astro.url.pathname;
-const cleanPath = pathname.endsWith('/') && pathname.length > 1 ? pathname.slice(0, -1) : pathname;
 
 const navItems = [
   { href: '/', label: 'Beranda' },
@@ -18,13 +19,6 @@ const navItems = [
   { href: '/tim-kami', label: 'Tim Kami' },
   { href: '/kontak', label: 'Hubungi Kami' },
 ];
-
-const checkActive = (itemHref: string) => {
-  if (itemHref === '/') {
-    return cleanPath === '' || cleanPath === '/' || cleanPath === '/index.html';
-  }
-  return cleanPath.startsWith(itemHref);
-};
 ---
 
 <!DOCTYPE html>
@@ -38,188 +32,26 @@ const checkActive = (itemHref: string) => {
   <meta property="og:type" content="website" />
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   <title>{title} | Aurelius & Associates Law Office</title>
+
+  <script is:inline>
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    const storedTheme = localStorage.getItem('theme');
+    const shouldBeDark = storedTheme === 'dark' || (storedTheme === null && prefersDark);
+    
+    if (shouldBeDark) {
+      document.documentElement.classList.add('dark-mode');
+    }
+  </script>
 </head>
 <body>
   <a href="#main-content" class="skip-link">Langsung ke konten utama</a>
 
-  <header class="site-header no-print">
-    <div class="container site-header__inner">
-      <a href="/" class="site-logo" aria-label="Aurelius & Associates — Beranda">
-        <span class="site-logo__accent">Aurelius</span>
-        <span class="site-logo__suffix">& Associates</span>
-        <span class="site-logo__mark" aria-hidden="true"></span>
-      </a>
-
-      <!-- NAVIGASI DESKTOP -->
-      <nav class="desktop-nav" aria-label="Navigasi utama">
-        {navItems.map(item => (
-          <a
-            href={item.href}
-            class={`nav-link ${checkActive(item.href) ? 'active' : ''}`}
-            aria-current={checkActive(item.href) ? 'page' : undefined}
-          >
-            {item.label}
-          </a>
-        ))}
-        <a href="/kontak" class="btn btn-emergency btn--sm">Darurat 24/7</a>
-      </nav>
-
-      <!-- TOGGLE BURGER MOBILE -->
-      <input type="checkbox" id="menu-toggle" class="menu-toggle-checkbox" aria-hidden="true" />
-      <label for="menu-toggle" class="menu-toggle-label" id="menu-toggle-btn" aria-label="Buka menu navigasi">
-        <span></span>
-        <span></span>
-        <span></span>
-      </label>
-      <div class="menu-overlay" aria-hidden="true"></div>
-
-      <!-- NAVIGASI MOBILE -->
-      <nav class="mobile-nav-menu" id="mobile-nav" aria-label="Navigasi mobile">
-        {navItems.map(item => (
-          <a
-            href={item.href}
-            class={`nav-link ${checkActive(item.href) ? 'active' : ''}`}
-            aria-current={checkActive(item.href) ? 'page' : undefined}
-          >
-            {item.label}
-          </a>
-        ))}
-        <div class="mobile-nav__actions">
-          <a href="tel:+6285171605225" class="btn btn-emergency btn--block">Darurat 24/7</a>
-          <a href="https://wa.me/6285171605225?text=Halo%20Aurelius%20Law%20Office,%20saya%20ingin%20melakukan%20konsultasi%20hukum." class="btn btn-gold-outline btn--block">WhatsApp</a>
-        </div>
-      </nav>
-    </div>
-  </header>
+  <Header navItems={navItems} pathname={pathname} />
 
   <main id="main-content">
     <slot />
   </main>
 
-  <footer class="site-footer no-print">
-    <div class="container">
-      <div class="grid-3 site-footer__grid">
-        <div>
-          <h3 class="site-footer__brand">Aurelius & Associates</h3>
-          <p class="site-footer__desc">
-            Firma hukum butik dengan dedikasi penuh pada integritas, melindungi aset digital, hak kekayaan intelektual, dan pembelaan kasus korporasi bernilai tinggi.
-          </p>
-          <p class="site-footer__meta">Terdaftar PERADI · Kantor Hogwarts</p>
-        </div>
-
-        <div class="site-footer__nav-col">
-          <h4 class="site-footer__heading">Navigasi</h4>
-          <ul class="site-footer__links">
-            {navItems.map(item => (
-              <li><a href={item.href}>{item.label}</a></li>
-            ))}
-          </ul>
-        </div>
-
-        <div>
-          <h4 class="site-footer__heading">Kantor Hogwarts</h4>
-          <p class="site-footer__desc">
-            Hogwarts Tower, Lantai 48, Lot 28<br />
-            Jl. Jenderal Nazwar Kav. 52-53<br />
-            Hogwarts Selatan 12190, Indonesia
-          </p>
-          <div class="site-footer__contact">
-            <div>
-              <strong>Hotline:</strong>{' '}
-              <a href="tel:+6285171605225">+62 851-7160-5225</a>
-            </div>
-            <div>
-              <strong>WhatsApp:</strong>{' '}
-              <a href="https://wa.me/6285171605225?text=Halo%20Aurelius%20Law%20Office">Hubungi Kami</a>
-            </div>
-            <div>
-              <strong>Email:</strong>{' '}
-              <a href="mailto:luqi.akhilfa@gmail.com">luqi.akhilfa@gmail.com</a>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="site-footer__bottom">
-        <div>&copy; {new Date().getFullYear()} Aurelius & Associates Law Office.</div>
-        <div class="site-footer__bottom-tagline">Integritas Tanpa Kompromi · Transparansi Biaya</div>
-      </div>
-    </div>
-  </footer>
+  <Footer navItems={navItems} />
 </body>
 </html>
-
-<!-- TAMBAHKAN CSS INI ke global.css atau di dalam tag <style> -->
-<style>
-/* --- FIX: Logika Responsive Header --- */
-
-/* 1. Sembunyikan elemen Mobile secara default di Desktop */
-.mobile-nav-menu {
-  display: none; /* Kunci perbaikan: Menu mobile tidak boleh terlihat di desktop */
-}
-.menu-toggle-label {
-  display: none; /* Burger menu tidak boleh terlihat di desktop */
-}
-.menu-overlay {
-  display: none; /* Overlay gelap tidak boleh terlihat di desktop */
-}
-
-/* 2. Tampilkan Desktop Navigation */
-.desktop-nav {
-  display: flex;
-  align-items: center;
-  gap: 2rem;
-}
-
-/* 3. Aturan untuk Mobile (Tablet & HP) */
-@media (max-width: 992px) {
-  /* Sembunyikan Desktop Navigation di Mobile */
-  .desktop-nav {
-    display: none;
-  }
-
-  /* Tampilkan Burger Menu di Mobile */
-  .menu-toggle-label {
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-    cursor: pointer;
-    z-index: 101;
-    padding: 5px;
-  }
-  .menu-toggle-label span {
-    display: block;
-    width: 25px;
-    height: 3px;
-    background-color: #1a1a1a;
-    transition: all 0.3s ease;
-  }
-
-  /* Efek Saat Menu Dibuka (Checkbox:checked) */
-  #menu-toggle:checked ~ .mobile-nav-menu {
-    display: flex; /* Munculkan menu mobile */
-    flex-direction: column;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    width: 100%;
-    background: #ffffff;
-    padding: 2rem;
-    box-shadow: 0 8px 16px rgba(0,0,0,0.1);
-    z-index: 100;
-    border-top: 1px solid #f0f0f0;
-  }
-
-  /* Overlay gelap di belakang menu mobile saat terbuka */
-  #menu-toggle:checked ~ .menu-overlay {
-    display: block;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0, 0, 0, 0.4);
-    z-index: 99;
-  }
-}
-</style>

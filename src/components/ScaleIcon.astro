@@ -1,0 +1,50 @@
+---
+interface Props {
+  size?: string;
+  variant?: string;
+  className?: string;
+  ariaLabel?: string;
+}
+
+const { 
+  size = 'md',
+  variant = 'outline',
+  className = '',
+  ariaLabel = 'Timbangan Keadilan'
+} = Astro.props;
+---
+
+<svg
+  viewBox="0 0 48 48"
+  width="48"
+  height="48"
+  xmlns="http://www.w3.org/2000/svg"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="1.5"
+  class="scale-icon"
+  aria-label={ariaLabel}
+  role="img"
+>
+  <path d="M 12 40 L 24 8 L 36 40 Z" stroke="currentColor" fill="none" />
+  <circle cx="12" cy="15" r="5" stroke="currentColor" fill="none" />
+  <line x1="12" y1="20" x2="12" y2="40" stroke="currentColor" />
+  <circle cx="36" cy="15" r="5" stroke="currentColor" fill="none" />
+  <line x1="36" y1="20" x2="36" y2="40" stroke="currentColor" />
+  <line x1="10" y1="12" x2="38" y2="12" stroke="currentColor" stroke-width="1.5" />
+  <circle cx="24" cy="12" r="2" fill="currentColor" />
+</svg>
+
+<style>
+  .scale-icon {
+    color: var(--color-gold);
+    transition: var(--transition-smooth);
+    width: 48px;
+    height: 48px;
+  }
+
+  .scale-icon:hover {
+    color: var(--color-burgundy);
+    filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.1));
+  }
+</style>

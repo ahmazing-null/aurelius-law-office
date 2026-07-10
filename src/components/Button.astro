@@ -1,0 +1,86 @@
+---
+type ButtonVariant = 'gold-outline' | 'gold-solid' | 'emergency' | 'white' | 'ghost' | 'red-pulse';
+type ButtonSize = 'sm' | 'md' | 'lg';
+
+interface Props {
+  href?: string;
+  variant?: ButtonVariant;
+  size?: ButtonSize;
+  block?: boolean;
+  glass?: boolean;
+  pulse?: boolean;
+  class?: string;
+  'aria-label'?: string;
+  [key: string]: any;
+}
+
+const {
+  href,
+  variant = 'gold-solid',
+  size = 'md',
+  block = false,
+  glass = false,
+  pulse = false,
+  class: className,
+  ...rest
+} = Astro.props;
+
+const classes = [
+  'btn',
+  `btn-${variant}`,
+  size !== 'md' && `btn--${size}`,
+  block && 'btn--block',
+  glass && 'glass',
+  pulse && 'pulse',
+  className,
+].filter(Boolean).join(' ');
+
+const Tag = href ? 'a' : 'button';
+---
+
+<Tag
+  {...href ? { href } : {}}
+  class={classes}
+  {...rest}
+>
+  <slot />
+</Tag>
+
+<style>
+  /* Styles inherited from global.css */
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-2);
+    font-family: var(--font-primary);
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    border-radius: var(--radius-sm);
+    transition: var(--transition-normal);
+    cursor: pointer;
+    border: 1px solid transparent;
+    text-align: center;
+    text-decoration: none;
+  }
+
+  .btn--sm {
+    padding: 0.5rem 1.25rem;
+    font-size: 0.75rem;
+  }
+
+  .btn--md {
+    padding: 0.75rem 1.75rem;
+    font-size: 0.8125rem;
+  }
+
+  .btn--lg {
+    padding: 0.875rem 2rem;
+    font-size: 0.8125rem;
+  }
+
+  .btn--block {
+    width: 100%;
+  }
+</style>

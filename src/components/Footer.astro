@@ -1,0 +1,246 @@
+---
+import ScaleIcon from './ScaleIcon.astro';
+import HeritageDivider from './HeritageDivider.astro';
+
+interface Props {
+  navItems?: Array<{ href: string; label: string }>;
+}
+
+const {
+  navItems = [
+    { href: '/', label: 'Beranda' },
+    { href: '/tentang-kami', label: 'Tentang Kami' },
+    { href: '/area-hukum', label: 'Area Hukum' },
+    { href: '/tim-kami', label: 'Tim Kami' },
+    { href: '/kontak', label: 'Hubungi Kami' },
+  ]
+} = Astro.props;
+---
+
+<footer class="site-footer no-print">
+  <HeritageDivider variant="laurel" />
+
+  <div class="container">
+    <div class="site-footer__top">
+      <div class="site-footer__scale-icon entrance-scale">
+        <ScaleIcon size="lg" variant="outline" />
+      </div>
+      <p class="site-footer__institution-text">
+        Aurelius & Associates · Penegak Keadilan & Integritas
+      </p>
+    </div>
+
+    <div class="grid-3 site-footer__grid">
+      <div>
+        <h3 class="site-footer__brand">Aurelius & Associates</h3>
+        <p class="site-footer__desc">
+          Firma hukum butik dengan dedikasi penuh pada integritas, melindungi aset digital, hak kekayaan intelektual, dan pembelaan kasus korporasi bernilai tinggi.
+        </p>
+        <p class="site-footer__meta">Terdaftar PERADI · Kantor Hogwarts</p>
+      </div>
+
+      <div class="site-footer__nav-col">
+        <h4 class="site-footer__heading">Navigasi</h4>
+        <ul class="site-footer__links">
+          {navItems.map(item => (
+            <li>
+              <a href={item.href}>
+                {item.label}
+              </a>
+            </li>
+          ))}
+          <li>
+            <a 
+              href="https://wa.me/6285171605225?text=Halo%20Aurelius%20Law%20Office,%20saya%20sedang%20menghadapi%20krisis%20hukum%20mendadak." 
+              class="emergency"
+              aria-label="Hubungi layanan darurat"
+            >
+              Darurat 24/7
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="site-footer__heading">Kantor Hogwarts</h4>
+        <p class="site-footer__desc">
+          Hogwarts Tower, Lantai 48, Lot 28<br />
+          Jl. Jenderal Nazwar Kav. 52-53<br />
+          Hogwarts Selatan 12190, Indonesia
+        </p>
+        <div class="site-footer__contact">
+          <div>
+            <strong>Hotline:</strong>{' '}
+            <a href="tel:+6285171605225">+62 851-7160-5225</a>
+          </div>
+          <div>
+            <strong>WhatsApp:</strong>{' '}
+            <a href="https://wa.me/6285171605225?text=Halo%20Aurelius%20Law%20Office">Hubungi Kami</a>
+          </div>
+          <div>
+            <strong>Email:</strong>{' '}
+            <a href="mailto:luqi.akhilfa@gmail.com">luqi.akhilfa@gmail.com</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <HeritageDivider variant="fleur" />
+
+    <div class="site-footer__bottom">
+      <div>&copy; {new Date().getFullYear()} Aurelius & Associates Law Office.</div>
+      <div class="site-footer__bottom-tagline">Integritas Tanpa Kompromi · Transparansi Biaya</div>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .site-footer {
+    background-color: var(--surface-muted);
+    border-top: 2px solid var(--color-border-brown);
+    padding: var(--space-20) 0 var(--space-12);
+    color: var(--color-text-secondary);
+    transition: var(--transition-smooth);
+  }
+
+  .site-footer__top {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: var(--space-16);
+    padding-bottom: var(--space-12);
+  }
+
+  .site-footer__scale-icon {
+    margin-bottom: var(--space-6);
+    opacity: 0.7;
+    transition: opacity var(--transition-smooth);
+  }
+
+  .site-footer__top:hover .site-footer__scale-icon {
+    opacity: 1;
+  }
+
+  .site-footer__institution-text {
+    font-family: var(--font-serif);
+    font-size: 0.95rem;
+    font-style: italic;
+    color: var(--color-text-secondary);
+    letter-spacing: 0.05em;
+  }
+
+  .site-footer__grid {
+    margin-bottom: var(--space-16);
+  }
+
+  .site-footer__brand {
+    font-family: var(--font-display);
+    color: var(--color-text-primary);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: var(--space-5);
+    font-size: 1.15rem;
+    font-weight: 700;
+  }
+
+  .site-footer__desc {
+    font-size: 0.9rem;
+    max-width: 320px;
+    line-height: 1.7;
+    margin-bottom: var(--space-6);
+  }
+
+  .site-footer__meta {
+    font-size: 0.8125rem;
+    color: var(--color-text-muted);
+  }
+
+  .site-footer__heading {
+    font-family: var(--font-primary);
+    color: var(--color-text-primary);
+    margin-bottom: var(--space-5);
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+
+  .site-footer__links {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+    font-size: 0.9rem;
+  }
+
+  .site-footer__links a {
+    color: var(--color-text-secondary);
+    transition: var(--transition-smooth);
+  }
+
+  .site-footer__links a:hover,
+  .site-footer__links a:focus-visible {
+    color: var(--color-gold);
+  }
+
+  .site-footer__links a.emergency {
+    color: var(--color-burgundy);
+    font-weight: 600;
+  }
+
+  .site-footer__links a.emergency:hover {
+    color: var(--color-red-button);
+  }
+
+  .site-footer__contact {
+    font-size: 0.9rem;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+  }
+
+  .site-footer__contact a {
+    color: var(--color-gold);
+    font-weight: 500;
+    transition: var(--transition-smooth);
+  }
+
+  .site-footer__contact a:hover {
+    color: var(--color-burgundy);
+  }
+
+  .site-footer__bottom {
+    border-top: 2px solid var(--color-border-brown);
+    padding-top: var(--space-8);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: var(--space-4);
+    font-size: 0.8125rem;
+    color: var(--color-text-muted);
+  }
+
+  .site-footer__bottom-tagline {
+    color: var(--color-gold);
+    font-weight: 600;
+    letter-spacing: 0.05em;
+  }
+
+  @media (max-width: 768px) {
+    .site-footer {
+      padding: var(--space-16) 0 var(--space-10);
+    }
+
+    .site-footer__grid {
+      margin-bottom: var(--space-12);
+    }
+
+    .site-footer__bottom {
+      flex-direction: column;
+      text-align: center;
+    }
+  }
+</style>
+

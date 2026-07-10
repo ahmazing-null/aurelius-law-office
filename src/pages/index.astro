@@ -4,6 +4,7 @@ import SectionHeader from '../components/SectionHeader.astro';
 import CardPractice from '../components/CardPractice.astro';
 import LegalHealthQuiz from '../components/LegalHealthQuiz.astro';
 import CTABand from '../components/CTABand.astro';
+import EmergencyHub from '../components/EmergencyHub.astro';
 
 const practicePreview = [
   {
@@ -42,7 +43,7 @@ const practicePreview = [
         </p>
         <div class="hero__actions">
           <a href="/kontak" class="btn btn-gold-solid btn--lg">Konsultasi Sekarang</a>
-          <a href="https://wa.me/6285171605225?text=Halo%20Aurelius%20Law%20Office,%20saya%20memerlukan%20bantuan%20darurat%20hukum." class="btn btn-emergency btn--lg">Darurat 24/7</a>
+          <a href="https://wa.me/6285171605225?text=Halo%20Aurelius%20Law%20Office,%20saya%20memerlukan%20bantuan%20darurat%20hukum." class="btn btn-emergency btn--lg pulse">Darurat 24/7</a>
         </div>
       </div>
     </div>
@@ -58,7 +59,7 @@ const practicePreview = [
       />
 
       <div class="grid-3">
-        <div class="value-card">
+        <div class="value-card glass">
           <div class="value-card__icon">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
               <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v17.25m0 0a7.5 7.5 0 1 1-7.5-7.5h15a7.5 7.5 0 1 1-7.5 7.5z" />
@@ -68,7 +69,7 @@ const practicePreview = [
           <p>Struktur biaya konsultasi dan litigasi dijelaskan secara terbuka — tanpa biaya tersembunyi.</p>
         </div>
 
-        <div class="value-card">
+        <div class="value-card glass">
           <div class="value-card__icon">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
               <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75m-3-7.036A11.959 11.959 0 0 1 3.598 6 11.99 11.99 0 0 0 3 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.57-.599-3.75A11.952 11.952 0 0 0 12 2.714z" />
@@ -78,7 +79,7 @@ const practicePreview = [
           <p>Spesialisasi perlindungan aset digital, HAKI, dan mitigasi risiko komersial sebelum eskalasi.</p>
         </div>
 
-        <div class="value-card">
+        <div class="value-card glass">
           <div class="value-card__icon">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
               <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 13.5 10.5 3.75 12 10.5h8.25L9.75 21.75 12 13.5H3.75z" />
@@ -90,6 +91,8 @@ const practicePreview = [
       </div>
     </div>
   </section>
+
+  <EmergencyHub />
 
   <section class="section-padding section-muted section-border-top">
     <div class="container">

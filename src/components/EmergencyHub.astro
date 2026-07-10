@@ -1,0 +1,114 @@
+---
+import Button from './Button.astro';
+---
+
+<section class="emergency-hub">
+  <div class="container">
+    <div class="emergency-hub__content glass-emergency">
+      <div class="emergency-hub__icon">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126zM12 15.75h.007v.008H12v-.008z" />
+        </svg>
+      </div>
+      
+      <div class="emergency-hub__text">
+        <h2>Jika Anda Menghadapi Krisis Hukum Mendadak</h2>
+        <p>
+          Jika Anda sedang menghadapi pemeriksaan mendadak atau situasi hukum kritis saat ini, 
+          <strong>jangan mengisi formulir</strong>. Tekan tombol darurat sekarang juga.
+        </p>
+      </div>
+
+      <a 
+        href="https://wa.me/6285171605225?text=Halo%20Aurelius%20Law%20Office,%20saya%20sedang%20menghadapi%20krisis%20hukum%20mendadak." 
+        class="btn btn-emergency pulse float-subtle"
+        aria-label="Hubungi layanan darurat hukum 24/7"
+      >
+        Hubungi Darurat Sekarang
+      </a>
+    </div>
+  </div>
+</section>
+
+<style>
+  .emergency-hub {
+    padding: var(--space-16) 0;
+    background: transparent;
+  }
+
+  .emergency-hub__content {
+    display: flex;
+    align-items: center;
+    gap: var(--space-8);
+    padding: var(--space-12) var(--space-10);
+    border-radius: var(--radius-lg);
+    flex-wrap: wrap;
+  }
+
+  .emergency-hub__icon {
+    flex-shrink: 0;
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-red-button);
+  }
+
+  .emergency-hub__icon svg {
+    width: 100%;
+    height: 100%;
+  }
+
+  .emergency-hub__text {
+    flex: 1;
+    min-width: 250px;
+  }
+
+  .emergency-hub__text h2 {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    color: var(--color-red-deep);
+    margin-bottom: var(--space-2);
+    font-weight: 700;
+  }
+
+  html.dark-mode .emergency-hub__text h2 {
+    color: var(--color-red-button);
+  }
+
+  .emergency-hub__text p {
+    color: var(--color-text-secondary);
+    margin: 0;
+    line-height: 1.6;
+  }
+
+  .emergency-hub__text strong {
+    color: var(--color-red-wine);
+    font-weight: 700;
+  }
+
+  html.dark-mode .emergency-hub__text strong {
+    color: var(--color-red-button);
+  }
+
+  .btn {
+    flex-shrink: 0;
+  }
+
+  @media (max-width: 768px) {
+    .emergency-hub__content {
+      flex-direction: column;
+      align-items: stretch;
+      text-align: center;
+    }
+
+    .emergency-hub__icon {
+      justify-self: center;
+    }
+
+    .btn {
+      width: 100%;
+    }
+  }
+</style>

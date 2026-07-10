@@ -1,0 +1,73 @@
+---
+interface Props {
+  variant?: string;
+  showLabel?: boolean;
+  label?: string;
+  className?: string;
+}
+
+const { 
+  variant = 'simple',
+  showLabel = false,
+  label = '',
+  className = ''
+} = Astro.props;
+---
+
+<div class="heritage-divider" role="separator">
+  {variant === 'simple' && (
+    <div class="divider-line-simple">
+      <span class="divider-dot"></span>
+    </div>
+  )}
+</div>
+
+<style>
+  .heritage-divider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: var(--space-12) 0;
+    color: var(--color-gold);
+    opacity: 0.8;
+    transition: opacity var(--transition-smooth);
+  }
+
+  .heritage-divider:hover {
+    opacity: 1;
+  }
+
+  .divider-line-simple {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: var(--space-4);
+  }
+
+  .divider-line-simple::before,
+  .divider-line-simple::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(
+      to right,
+      transparent,
+      currentColor,
+      transparent
+    );
+  }
+
+  .divider-dot {
+    width: 8px;
+    height: 8px;
+    background: currentColor;
+    border-radius: 50%;
+    opacity: 0.6;
+  }
+
+  @media (max-width: 768px) {
+    .heritage-divider {
+      margin: var(--space-8) 0;
+    }
+  }
+</style>

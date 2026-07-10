@@ -8,7 +8,7 @@ interface Props {
 const { title, description, iconName } = Astro.props;
 ---
 
-<article class="practice-card surface-card">
+<article class="practice-card frame-card">
   <div class="practice-card__icon">
     {iconName === 'corporate' && (
       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
@@ -32,51 +32,67 @@ const { title, description, iconName } = Astro.props;
     )}
   </div>
 
-  <h3>{title}</h3>
-  <p>{description}</p>
+  <h3 class="practice-card__title">{title}</h3>
+  <p class="practice-card__description">{description}</p>
 </article>
 
 <style>
   .practice-card {
     padding: var(--space-10);
-    border-radius: var(--radius-sm);
     display: flex;
     flex-direction: column;
     height: 100%;
     transition: var(--transition-normal);
-  }
-
-  .practice-card:hover {
-    border-color: var(--color-border-gold);
+    border: 2px solid var(--color-brown-dark);
+    background: var(--color-bg-card);
     box-shadow: var(--shadow-md);
   }
 
+  .practice-card:hover {
+    border-color: var(--color-gold);
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-6px);
+  }
+
   .practice-card__icon {
-    color: var(--color-gold-dark);
+    color: var(--color-gold);
     margin-bottom: var(--space-6);
-    width: 44px;
-    height: 44px;
+    width: 56px;
+    height: 56px;
     display: flex;
     align-items: center;
     justify-content: center;
-    border: 1px solid var(--color-border-light);
-    border-radius: var(--radius-sm);
-    background: var(--surface-muted);
+    border: 2px solid var(--color-border-gold);
+    background: rgba(200, 148, 62, 0.08);
+    transition: var(--transition-normal);
+  }
+
+  .practice-card:hover .practice-card__icon {
+    background: rgba(200, 148, 62, 0.15);
+    border-color: var(--color-gold);
+    color: var(--color-burgundy);
   }
 
   .practice-card__icon svg {
-    width: 22px;
-    height: 22px;
+    width: 28px;
+    height: 28px;
   }
 
-  .practice-card h3 {
+  .practice-card__title {
     margin-bottom: var(--space-4);
-    font-size: 1.2rem;
+    font-size: 1.25rem;
+    color: var(--color-text-primary);
+    transition: var(--transition-normal);
   }
 
-  .practice-card p {
-    font-size: 0.9375rem;
+  .practice-card:hover .practice-card__title {
+    color: var(--color-burgundy);
+  }
+
+  .practice-card__description {
+    font-size: 0.95rem;
     line-height: 1.7;
     flex-grow: 1;
+    color: var(--color-text-secondary);
   }
 </style>

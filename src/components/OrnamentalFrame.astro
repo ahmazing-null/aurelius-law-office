@@ -1,0 +1,38 @@
+---
+interface Props {
+  variant?: string;
+  showCornerOrnaments?: boolean;
+}
+
+const { 
+  variant = 'simple',
+  showCornerOrnaments = true,
+} = Astro.props;
+---
+
+<div class="ornamental-frame">
+  <div class="frame-content">
+    <slot />
+  </div>
+</div>
+
+<style>
+  .ornamental-frame {
+    position: relative;
+    padding: var(--space-10);
+    background: var(--color-bg-card);
+    border: 2px solid var(--color-brown-dark);
+    box-shadow: var(--shadow-md);
+    transition: var(--transition-smooth);
+  }
+
+  .ornamental-frame:hover {
+    box-shadow: var(--shadow-lg);
+    border-color: var(--color-gold);
+  }
+
+  .frame-content {
+    position: relative;
+    z-index: 1;
+  }
+</style>
